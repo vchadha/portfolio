@@ -2,8 +2,30 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <main className="flex flex-row min-h-screen w-full items-center">
+      <div className="flex flex-col min-h-screen w-5/12 my-24 mx-32">
+      {/* TODO: replace text-colour with values from globals */}
+        <h1 className="max-w-xs mb-2 text-5xl font-bold leading-10 tracking-tight text-black dark:text-zinc-50">
+          Varun Chadha
+        </h1>
+
+        <h1 className="max-w-xs my-2 text-2xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
+          Software Engineer
+        </h1>
+
+        <h1 className="max-w-xs mt-32">
+          TODO: table of contents
+        </h1>
+
+        <h1 className="max-w-xs mt-auto">
+          TODO: links to github, linkedin, email
+        </h1>
+      </div>
+
+      <div className="flex flex-col min-h-screen w-7/12">
+        Details
+      </div>
+      {/* <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 sm:items-start">
         <Image
           className="dark:invert"
           src="/next.svg"
@@ -59,7 +81,7 @@ export default function Home() {
             Documentation
           </a>
         </div>
-      </main>
-    </div>
+      </main> */}
+    </main>
   );
 }
