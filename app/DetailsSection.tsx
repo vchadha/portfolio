@@ -5,7 +5,7 @@ export default function DetailsSection() {
   return (
     <main
       id="content"
-      className="md:w-7/12 w-full flex-1 h-screen overflow-y-auto p-6 md:p-12"
+      className="md:w-7/12 w-full flex-1 h-screen p-6 md:p-12"
     >
         <section id="about" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="About me">
             <p>About</p>
