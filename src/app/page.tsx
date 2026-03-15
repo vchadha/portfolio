@@ -20,19 +20,15 @@ export default function Home() {
     const savedScrollY = Number(sessionStorage.getItem("scrollY") ?? 0);
     const savedSection = sessionStorage.getItem("activeSection") ?? "#about";
 
-    if (savedScrollY > 0) {
-      window.scrollTo({ top: savedScrollY, behavior: "instant" as ScrollBehavior });
+    window.scrollTo({ top: savedScrollY, behavior: "instant" as ScrollBehavior });
 
-      if (!prefersReduced) {
-        requestAnimationFrame(() => {
-          document
-            .querySelector(savedSection)
-            ?.scrollIntoView({ behavior: "smooth", block: "start" });
-          setIsRestoring(false);
-        });
-      } else {
+    if (!prefersReduced) {
+      requestAnimationFrame(() => {
+        document
+          .querySelector(savedSection)
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
         setIsRestoring(false);
-      }
+      });
     } else {
       setIsRestoring(false);
     }
