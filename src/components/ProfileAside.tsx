@@ -18,7 +18,7 @@ const navItems: NavItem[] = [
 const sectionIds = navItems.map((item) => item.href.replace("#", ""));
 
 export default function ProfileAside() {
-  const { visibleSection, activeSection, navigateTo } = useActiveSection(sectionIds);
+  const { visibleSection, activeSection } = useActiveSection(sectionIds);
   const [announcement, setAnnouncement] = useState("");
 
   // Keyboard navigation: j = next, k = previous
@@ -42,13 +42,13 @@ export default function ProfileAside() {
           : currentIndex - 1;
 
       const target = navItems[targetIndex];
-      navigateTo(target.href);
+      window.location.hash = target.href;
       setAnnouncement(`Navigated to ${target.label} section`);
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [activeSection, navigateTo]);
+  }, [activeSection]);
 
   return (
     <aside
@@ -77,24 +77,16 @@ export default function ProfileAside() {
 
               return (
                 <li key={item.href}>
-                  <Link
+                  <a
                     href={item.href}
                     className={`group flex items-center py-3 ${isVisible ? "active" : ""}`}
                     aria-current={activeSection === item.href ? "location" : undefined}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigateTo(item.href);
-                    }}
                   >
-                    <span
-                      className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all duration-300 ease-out motion-reduce:transition-none group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200"
-                    />
-                    <span
-                      className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 transition-colors duration-300 motion-reduce:transition-none group-hover:text-slate-200 group-focus-visible:text-slate-200"
-                    >
+                    <span className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all duration-300 ease-out motion-reduce:transition-none group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200" />
+                    <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 transition-colors duration-300 motion-reduce:transition-none group-hover:text-slate-200 group-focus-visible:text-slate-200">
                       {item.label}
                     </span>
-                  </Link>
+                  </a>
                 </li>
               );
             })}
