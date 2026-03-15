@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 interface NavItem {
@@ -16,22 +16,22 @@ const navItems: NavItem[] = [
 
 /**
  * Profile sidebar component with navigation, social links, and active section highlighting.
- * Handles client-side scroll detection and keyboard navigation.
+ * Handles client-side navigation via clicks and keyboard (j/k keys).
  */
 export default function ProfileAside() {
   const [activeSection, setActiveSection] = useState("#about");
-  const activeSectionRef = useRef(activeSection);
-  const isNavigatingRef = useRef(false);
-
-  useEffect(() => {
-    activeSectionRef.current = activeSection;
-  }, [activeSection]);
 
   useEffect(() => {
     const hash = window.location.hash;
-    const initialSection = hash || "#about";
-    setActiveSection(initialSection);
+    if (hash) {
+      setActiveSection(hash);
+      // Smooth scroll to section after a delay to ensure page is loaded
+      setTimeout(() => {
+        document.querySelector(hash)?.scrollIntoView({ behavior: "smooth" });
+      }, 200);
+    }
 
+    // Simple observer to update active on scroll for animations
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -40,20 +40,13 @@ export default function ProfileAside() {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.8 }
     );
 
     navItems.forEach((item) => {
       const section = document.querySelector(item.href);
       if (section) observer.observe(section);
     });
-
-    // Scroll to hash after observer is set up
-    if (hash && hash !== "#about") {
-      setTimeout(() => {
-        document.querySelector(hash)?.scrollIntoView({ behavior: "smooth" });
-      }, 100); // Small delay to ensure DOM is ready
-    }
 
     return () => observer.disconnect();
   }, []);
@@ -68,23 +61,19 @@ export default function ProfileAside() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  }, [activeSection]);
 
   const [announcement, setAnnouncement] = useState("");
 
   type Direction = 'next' | 'prev';
 
   const keyMappings: Record<string, Direction> = {
-    "ArrowDown": 'next',
     "j": 'next',
-    "ArrowUp": 'prev',
     "k": 'prev',
   };
 
   const navigateToSection = (direction: Direction): void => {
-    if (isNavigatingRef.current) return;
-    isNavigatingRef.current = true;
-    const currentIndex = navItems.findIndex((item) => item.href === activeSectionRef.current);
+    const currentIndex = navItems.findIndex((item) => item.href === activeSection);
     let targetIndex: number;
     if (direction === 'next') {
       targetIndex = (currentIndex + 1) % navItems.length;
@@ -92,12 +81,10 @@ export default function ProfileAside() {
       targetIndex = currentIndex === 0 ? navItems.length - 1 : currentIndex - 1;
     }
     const targetItem = navItems[targetIndex];
+    setActiveSection(targetItem.href);
     document.querySelector(targetItem.href)?.scrollIntoView({ behavior: "smooth" });
     window.location.hash = targetItem.href;
     setAnnouncement(`Navigated to ${targetItem.label} section`);
-    setTimeout(() => {
-      isNavigatingRef.current = false;
-    }, 300); // Adjust delay as needed
   };
 
   return (
@@ -129,6 +116,7 @@ export default function ProfileAside() {
                 aria-current={activeSection === item.href ? "location" : undefined}
                 onClick={(e) => {
                   e.preventDefault();
+                  setActiveSection(item.href);
                   document.querySelector(item.href)?.scrollIntoView({ behavior: "smooth" });
                   window.location.hash = item.href;
                 }}
