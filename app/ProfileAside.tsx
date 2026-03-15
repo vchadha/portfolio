@@ -22,13 +22,14 @@ export default function ProfileAside() {
   const [activeSection, setActiveSection] = useState("#about");
 
   useEffect(() => {
-    const hash = window.location.hash;
-    if (hash) {
+    if (window.location.hash) {
+      const hash = window.location.hash;
+      history.replaceState(null, '', window.location.pathname);
       setActiveSection(hash);
-      // Smooth scroll to section after a delay to ensure page is loaded
       setTimeout(() => {
         document.querySelector(hash)?.scrollIntoView({ behavior: "smooth" });
-      }, 200);
+        history.pushState(null, '', hash);
+      }, 100);
     }
 
     // Simple observer to update active on scroll for animations
