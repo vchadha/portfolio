@@ -1,7 +1,5 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
 import { useActiveSection } from "@/hooks/useActiveSection";
 
 interface NavItem {
@@ -18,10 +16,10 @@ const navItems: NavItem[] = [
 const sectionIds = navItems.map((item) => item.href.replace("#", ""));
 
 export default function ProfileAside() {
-  const { visibleSection, activeSection } = useActiveSection(sectionIds);
+  const { visibleSection, activeSection, activeSectionRef, navigateTo } =
+    useActiveSection(sectionIds);
   const [announcement, setAnnouncement] = useState("");
 
-  // Keyboard navigation: j = next, k = previous
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key !== "j" && e.key !== "k") return;
@@ -32,23 +30,25 @@ export default function ProfileAside() {
         return;
 
       const currentIndex = navItems.findIndex(
-        (item) => item.href === activeSection
+        (item) => item.href === activeSectionRef.current
       );
+      const safeIndex = currentIndex === -1 ? 0 : currentIndex;
       const targetIndex =
         e.key === "j"
-          ? (currentIndex + 1) % navItems.length
-          : currentIndex === 0
+          ? (safeIndex + 1) % navItems.length
+          : safeIndex === 0
           ? navItems.length - 1
-          : currentIndex - 1;
+          : safeIndex - 1;
 
       const target = navItems[targetIndex];
-      window.location.hash = target.href;
+
+      navigateTo(target.href);
       setAnnouncement(`Navigated to ${target.label} section`);
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [activeSection]);
+  }, []);
 
   return (
     <aside
@@ -60,12 +60,8 @@ export default function ProfileAside() {
       </div>
 
       <div>
-        <h1 className="text-5xl font-bold leading-tight mb-2">
-          Varun Chadha
-        </h1>
-        <p className="text-2xl font-semibold mb-6">
-          Software Engineer
-        </p>
+        <h1 className="text-5xl font-bold leading-tight mb-2">Varun Chadha</h1>
+        <p className="text-2xl font-semibold mb-6">Software Engineer</p>
         <p className="text-sm font-light mb-6">
           Building formally verified software.
         </p>
@@ -74,13 +70,14 @@ export default function ProfileAside() {
           <ul className="mt-16">
             {navItems.map((item) => {
               const isVisible = visibleSection === item.href;
-
               return (
                 <li key={item.href}>
                   <a
                     href={item.href}
                     className={`group flex items-center py-3 ${isVisible ? "active" : ""}`}
-                    aria-current={activeSection === item.href ? "location" : undefined}
+                    aria-current={
+                      activeSection === item.href ? "location" : undefined
+                    }
                   >
                     <span className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all duration-300 ease-out motion-reduce:transition-none group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200" />
                     <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 transition-colors duration-300 motion-reduce:transition-none group-hover:text-slate-200 group-focus-visible:text-slate-200">

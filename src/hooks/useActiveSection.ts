@@ -1,8 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 
 export function useActiveSection(sectionIds: string[]) {
   const [visibleSection, setVisibleSection] = useState(`#${sectionIds[0]}`);
   const [activeSection, setActiveSection] = useState(`#${sectionIds[0]}`);
+  // Ref mirrors activeSection but updates synchronously for keyboard navigation
+  const activeSectionRef = useRef(`#${sectionIds[0]}`);
+
+  // Stable navigate function — updates ref synchronously, state async
+  const navigateTo = useCallback((href: string) => {
+    activeSectionRef.current = href;
+    setActiveSection(href);
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    history.replaceState(null, "", href);
+  }, []);
 
   // Before unload: save scroll position and active section, strip hash
   useEffect(() => {
@@ -18,46 +28,41 @@ export function useActiveSection(sectionIds: string[]) {
     return () => window.removeEventListener("beforeunload", onBeforeUnload);
   }, []);
 
-  // On mount: tell Next.js not to touch scroll, instantly restore position,
-  // then smoothly scroll to the active section from there
+  // On mount: restore scroll position then smoothly scroll to active section
   useEffect(() => {
-    history.scrollRestoration = 'manual';
+    history.scrollRestoration = "manual";
 
-    const saved = sessionStorage.getItem('activeSection');
-    const savedScrollY = sessionStorage.getItem('scrollY');
+    const saved = sessionStorage.getItem("activeSection");
+    const savedScrollY = sessionStorage.getItem("scrollY");
     const target = saved || `#${sectionIds[0]}`;
+
+    activeSectionRef.current = target;
     setActiveSection(target);
 
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
 
     if (saved && savedScrollY) {
-      window.scrollTo({ top: parseInt(savedScrollY, 10), behavior: 'instant' });
+      window.scrollTo({ top: parseInt(savedScrollY, 10), behavior: "instant" });
 
       if (reducedMotion) {
-        // Reveal instantly and jump directly to section — no animation
-        document.documentElement.style.opacity = '1';
-        document.querySelector(saved)?.scrollIntoView({ behavior: 'instant' });
-        history.replaceState(null, '', saved);
+        document.documentElement.style.opacity = "1";
+        document.querySelector(saved)?.scrollIntoView({ behavior: "instant" });
+        history.replaceState(null, "", saved);
       } else {
-        document.documentElement.style.transition = 'opacity 0.3s ease';
-        document.documentElement.style.opacity = '1';
+        document.documentElement.style.transition = "opacity 0.3s ease";
+        document.documentElement.style.opacity = "1";
 
         const timer = setTimeout(() => {
-          document.querySelector(saved)?.scrollIntoView({ behavior: 'smooth' });
-          history.replaceState(null, '', saved);
+          document.querySelector(saved)?.scrollIntoView({ behavior: "smooth" });
+          history.replaceState(null, "", saved);
         }, 50);
         return () => clearTimeout(timer);
       }
     } else {
-      document.documentElement.style.opacity = '1';
+      document.documentElement.style.opacity = "1";
     }
-  }, []);
-
-  // Update active section when hash changes (nav click)
-  useEffect(() => {
-    const onHashChange = () => setActiveSection(window.location.hash);
-    window.addEventListener("hashchange", onHashChange);
-    return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
 
   // IntersectionObserver: drives nav highlight as user scrolls
@@ -81,5 +86,5 @@ export function useActiveSection(sectionIds: string[]) {
     return () => observer.disconnect();
   }, [sectionIds]);
 
-  return { visibleSection, activeSection };
+  return { visibleSection, activeSection, activeSectionRef, navigateTo };
 }
