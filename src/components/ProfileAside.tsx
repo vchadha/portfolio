@@ -19,7 +19,7 @@ const navItems: NavItem[] = [
 const sectionIds = navItems.map((item) => item.href.replace("#", ""));
 
 export default function ProfileAside() {
-  const activeSection = useActiveSection(sectionIds);
+  const { visibleSection, activeSection, navigateTo } = useActiveSection(sectionIds);
   const [scanIndex, setScanIndex] = useState(-1);
   const [announcement, setAnnouncement] = useState("");
 
@@ -44,19 +44,21 @@ export default function ProfileAside() {
       });
     }
 
-    // Sequential scan animation down to the active section
+    // Scan animation down to the last explicitly navigated section
     const activeIndex = navItems.findIndex((item) => item.href === savedSection);
     if (!prefersReduced) {
       navItems.forEach((_, i) => {
-        if (i > activeIndex) return;
+      if (i > activeIndex) return;
         setTimeout(() => setScanIndex(i), i * 180);
       });
+      const resetDelay = activeIndex * 180 + 300; // 300ms after last item
+      setTimeout(() => setScanIndex(-1), resetDelay);
     } else {
       setScanIndex(activeIndex);
     }
-  }, []); // mount only
+  }, []);
 
-  // Keyboard navigation: j = next section, k = previous section
+  // Keyboard navigation: j = next, k = previous
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key !== "j" && e.key !== "k") return;
@@ -77,19 +79,13 @@ export default function ProfileAside() {
           : currentIndex - 1;
 
       const target = navItems[targetIndex];
-      scrollToSection(target.href);
+      navigateTo(target.href);
       setAnnouncement(`Navigated to ${target.label} section`);
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [activeSection]);
-
-  const scrollToSection = (href: string) => {
-    sessionStorage.setItem("activeSection", href);
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-    setTimeout(() => history.replaceState(null, "", href), 500);
-  };
 
   return (
     <aside
@@ -113,19 +109,22 @@ export default function ProfileAside() {
       <nav id="nav" aria-label="On-page navigation" className="mb-8">
         <ul className="mt-16">
           {navItems.map((item, index) => {
-            const isActive = activeSection === item.href;
+            // Highlight is driven purely by what's visible in the viewport
+            const isVisible = visibleSection === item.href;
             const isScanning = scanIndex === index;
-            const isHighlighted = isActive || isScanning;
+            const isHighlighted = isVisible; // only viewport drives the highlight
+            const isSweeping = isScanning;   // transient scan animation only
 
             return (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  aria-current={isActive ? "location" : undefined}
+                  // aria-current tracks where the user explicitly navigated to
+                  aria-current={activeSection === item.href ? "location" : undefined}
                   className="group flex items-center py-3"
                   onClick={(e) => {
                     e.preventDefault();
-                    scrollToSection(item.href);
+                    navigateTo(item.href);
                   }}
                 >
                   <span
@@ -134,7 +133,7 @@ export default function ProfileAside() {
                       motion-reduce:transition-none
                       group-hover:w-16 group-hover:bg-slate-200
                       group-focus-visible:w-16 group-focus-visible:bg-slate-200
-                      ${isHighlighted ? "w-16 bg-slate-200" : "w-8"}
+                      ${isHighlighted || isSweeping ? "w-16 bg-slate-200" : "w-8"}
                     `}
                   />
                   <span
@@ -142,7 +141,7 @@ export default function ProfileAside() {
                       text-xs font-bold uppercase tracking-widest
                       transition-colors duration-300 motion-reduce:transition-none
                       group-hover:text-slate-200 group-focus-visible:text-slate-200
-                      ${isHighlighted ? "text-slate-200" : "text-slate-500"}
+                      ${isHighlighted || isSweeping ? "text-slate-200" : "text-slate-500"}
                     `}
                   >
                     {item.label}

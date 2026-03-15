@@ -1,29 +1,26 @@
 import { useState, useEffect } from "react";
 
 /**
- * Tracks which section is currently in view using IntersectionObserver.
- * Persists the active section to sessionStorage for cross-refresh memory.
- *
- * @param sectionIds - Array of element IDs to observe (without #)
- * @returns The currently active section id (with # prefix e.g. "#about")
+ * visibleSection: whichever section is currently in the viewport (drives nav highlight)
+ * activeSection: only changes on explicit navigation (click or j/k), drives URL + sessionStorage
  */
-export function useActiveSection(sectionIds: string[]): string {
+export function useActiveSection(sectionIds: string[]) {
+  const [visibleSection, setVisibleSection] = useState(`#${sectionIds[0]}`);
   const [activeSection, setActiveSection] = useState(`#${sectionIds[0]}`);
 
-  // Read sessionStorage only on the client, after mount
+  // Restore activeSection from sessionStorage on mount (client-only)
   useEffect(() => {
     const saved = sessionStorage.getItem("activeSection");
     if (saved) setActiveSection(saved);
   }, []);
 
+  // IntersectionObserver: only updates visibleSection, never activeSection
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const id = `#${entry.target.id}`;
-            setActiveSection(id);
-            sessionStorage.setItem("activeSection", id);
+            setVisibleSection(`#${entry.target.id}`);
           }
         });
       },
@@ -39,5 +36,13 @@ export function useActiveSection(sectionIds: string[]): string {
     return () => observer.disconnect();
   }, [sectionIds]);
 
-  return activeSection;
+  // Explicit navigation: updates both activeSection and sessionStorage
+  const navigateTo = (href: string) => {
+    setActiveSection(href);
+    sessionStorage.setItem("activeSection", href);
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    setTimeout(() => history.replaceState(null, "", href), 500);
+  };
+
+  return { visibleSection, activeSection, navigateTo };
 }
