@@ -37,8 +37,8 @@ export default function ProfileAside() {
         e.key === "j"
           ? (safeIndex + 1) % navItems.length
           : safeIndex === 0
-          ? navItems.length - 1
-          : safeIndex - 1;
+            ? navItems.length - 1
+            : safeIndex - 1;
 
       const target = navItems[targetIndex];
 
@@ -53,16 +53,16 @@ export default function ProfileAside() {
   return (
     <aside
       aria-label="Profile"
-      className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[48%] lg:flex-col lg:justify-between lg:py-24 w-full py-12"
+      className="w-full py-12 lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[48%] lg:flex-col lg:justify-between lg:py-24"
     >
       <div aria-live="polite" aria-atomic="true" className="sr-only">
         {announcement}
       </div>
 
       <div>
-        <h1 className="text-5xl font-bold leading-tight mb-2">Varun Chadha</h1>
-        <p className="text-2xl font-semibold mb-6">Software Engineer</p>
-        <p className="text-sm font-light mb-6">
+        <h1 className="mb-2 text-5xl leading-tight font-bold">Varun Chadha</h1>
+        <p className="mb-6 text-2xl font-semibold">Software Engineer</p>
+        <p className="mb-6 text-sm font-light">
           Building formally verified software.
         </p>
 
@@ -79,8 +79,8 @@ export default function ProfileAside() {
                       activeSection === item.href ? "location" : undefined
                     }
                   >
-                    <span className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all duration-300 ease-out motion-reduce:transition-none group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200" />
-                    <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 transition-colors duration-300 motion-reduce:transition-none group-hover:text-slate-200 group-focus-visible:text-slate-200">
+                    <span className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all duration-300 ease-out group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none" />
+                    <span className="nav-text text-xs font-bold tracking-widest text-slate-500 uppercase transition-colors duration-300 group-hover:text-slate-200 group-focus-visible:text-slate-200 motion-reduce:transition-none">
                       {item.label}
                     </span>
                   </a>
@@ -94,17 +94,29 @@ export default function ProfileAside() {
       <div className="mt-auto pt-8">
         <ul className="flex gap-4">
           <li>
-            <a href="https://github.com/your-username" aria-label="GitHub profile" className="hover:underline">
+            <a
+              href="https://github.com/your-username"
+              aria-label="GitHub profile"
+              className="hover:underline"
+            >
               GitHub
             </a>
           </li>
           <li>
-            <a href="https://linkedin.com/in/your-username" aria-label="LinkedIn profile" className="hover:underline">
+            <a
+              href="https://linkedin.com/in/your-username"
+              aria-label="LinkedIn profile"
+              className="hover:underline"
+            >
               LinkedIn
             </a>
           </li>
           <li>
-            <a href="mailto:you@example.com" aria-label="Email" className="hover:underline">
+            <a
+              href="mailto:you@example.com"
+              aria-label="Email"
+              className="hover:underline"
+            >
               Email
             </a>
           </li>

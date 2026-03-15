@@ -15,10 +15,7 @@ export default function Home() {
       <div className="mx-auto min-h-screen max-w-screen-xl px-6 lg:px-12">
         <div className="lg:flex lg:justify-between lg:gap-4">
           <ProfileAside />
-          <main
-            id="content"
-            className="pt-24 lg:w-[52%] lg:py-24"
-          >
+          <main id="content" className="pt-24 lg:w-[52%] lg:py-24">
             <About />
             <Experience />
             <Projects />
