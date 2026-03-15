@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useActiveSection } from "@/hooks/useActiveSection";
-import { useScrollMemory } from "@/hooks/useScrollMemory";
 
 interface NavItem {
   href: string;
@@ -21,28 +20,6 @@ const sectionIds = navItems.map((item) => item.href.replace("#", ""));
 export default function ProfileAside() {
   const { visibleSection, activeSection, navigateTo } = useActiveSection(sectionIds);
   const [announcement, setAnnouncement] = useState("");
-
-  // Persist scroll position
-  useScrollMemory();
-
-  // On mount: restore scroll position
-  useEffect(() => {
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    const savedScrollY = Number(sessionStorage.getItem("scrollY") ?? 0);
-    const savedSection = sessionStorage.getItem("activeSection") ?? "#about";
-
-    if (savedScrollY > 0 && !prefersReduced) {
-      window.scrollTo({ top: savedScrollY, behavior: "instant" as ScrollBehavior });
-      requestAnimationFrame(() => {
-        document
-          .querySelector(savedSection)
-          ?.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
-    }
-  }, []);
 
   // Keyboard navigation: j = next, k = previous
   useEffect(() => {
@@ -71,7 +48,7 @@ export default function ProfileAside() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [activeSection]);
+  }, [activeSection, navigateTo]);
 
   return (
     <aside
@@ -101,7 +78,6 @@ export default function ProfileAside() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  // aria-current tracks where the user explicitly navigated to
                   aria-current={activeSection === item.href ? "location" : undefined}
                   className="group flex items-center py-3"
                   onClick={(e) => {

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 /**
  * visibleSection: whichever section is currently in the viewport (drives nav highlight)
@@ -24,7 +24,6 @@ export function useActiveSection(sectionIds: string[]) {
           }
         });
       },
-      // A section becomes active when it occupies the middle 20% of the viewport
       { rootMargin: "-40% 0px -40% 0px", threshold: 0 }
     );
 
@@ -36,13 +35,12 @@ export function useActiveSection(sectionIds: string[]) {
     return () => observer.disconnect();
   }, [sectionIds]);
 
-  // Explicit navigation: updates both activeSection and sessionStorage
-  const navigateTo = (href: string) => {
+  const navigateTo = useCallback((href: string) => {
     setActiveSection(href);
     sessionStorage.setItem("activeSection", href);
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
     setTimeout(() => history.replaceState(null, "", href), 500);
-  };
+  }, []);
 
   return { visibleSection, activeSection, navigateTo };
 }
