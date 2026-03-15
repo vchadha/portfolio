@@ -83,7 +83,13 @@ export default function ProfileAside() {
     const targetItem = navItems[targetIndex];
     setActiveSection(targetItem.href);
     document.querySelector(targetItem.href)?.scrollIntoView({ behavior: "smooth" });
-    window.location.hash = targetItem.href;
+    const target = document.querySelector(targetItem.href);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+      setTimeout(() => {
+        history.replaceState(null, "", targetItem.href);
+      }, 500);
+    }
     setAnnouncement(`Navigated to ${targetItem.label} section`);
   };
 
@@ -117,8 +123,14 @@ export default function ProfileAside() {
                 onClick={(e) => {
                   e.preventDefault();
                   setActiveSection(item.href);
-                  document.querySelector(item.href)?.scrollIntoView({ behavior: "smooth" });
-                  window.location.hash = item.href;
+                  const target = document.querySelector(item.href);
+                  if (target) {
+                    target.scrollIntoView({ behavior: "smooth" });
+                    // Update the URL without jumping the page
+                    setTimeout(() => {
+                      history.replaceState(null, "", item.href);
+                    }, 500);
+                  }
                 }}
               >
                 <span className={`mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none ${
