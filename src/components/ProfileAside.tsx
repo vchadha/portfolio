@@ -53,65 +53,56 @@ export default function ProfileAside() {
   return (
     <aside
       aria-label="Profile"
-      className="md:sticky md:top-0 md:h-screen md:w-5/12 w-full p-6 md:py-24 md:px-32 flex flex-col"
+      className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[48%] lg:flex-col lg:justify-between lg:py-24 w-full py-12"
     >
       <div aria-live="polite" aria-atomic="true" className="sr-only">
         {announcement}
       </div>
 
-      <h1 className="text-5xl font-bold leading-tight mb-2 text-black dark:text-zinc-50">
-        Varun Chadha
-      </h1>
-      <p className="text-2xl font-semibold mb-6 text-black dark:text-zinc-50">
-        Software Engineer
-      </p>
-      <p className="text-sm font-light mb-6 text-black dark:text-zinc-50">
-        Building formally verified software.
-      </p>
+      <div>
+        <h1 className="text-5xl font-bold leading-tight mb-2">
+          Varun Chadha
+        </h1>
+        <p className="text-2xl font-semibold mb-6">
+          Software Engineer
+        </p>
+        <p className="text-sm font-light mb-6">
+          Building formally verified software.
+        </p>
 
-      <nav id="nav" aria-label="On-page navigation" className="mb-8">
-        <ul className="mt-16">
-          {navItems.map((item) => {
-            const isHighlighted = visibleSection === item.href;
+        <nav id="nav" aria-label="On-page navigation">
+          <ul className="mt-16">
+            {navItems.map((item) => {
+              const isVisible = visibleSection === item.href;
 
-            return (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  aria-current={activeSection === item.href ? "location" : undefined}
-                  className="group flex items-center py-3"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    navigateTo(item.href);
-                  }}
-                >
-                  <span
-                    className={`
-                      mr-4 h-px bg-slate-600 transition-all duration-300 ease-out
-                      motion-reduce:transition-none
-                      group-hover:w-16 group-hover:bg-slate-200
-                      group-focus-visible:w-16 group-focus-visible:bg-slate-200
-                      ${isHighlighted ? "w-16 bg-slate-200" : "w-8"}
-                    `}
-                  />
-                  <span
-                    className={`
-                      text-xs font-bold uppercase tracking-widest
-                      transition-colors duration-300 motion-reduce:transition-none
-                      group-hover:text-slate-200 group-focus-visible:text-slate-200
-                      ${isHighlighted ? "text-slate-200" : "text-slate-500"}
-                    `}
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className={`group flex items-center py-3 ${isVisible ? "active" : ""}`}
+                    aria-current={activeSection === item.href ? "location" : undefined}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigateTo(item.href);
+                    }}
                   >
-                    {item.label}
-                  </span>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
+                    <span
+                      className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all duration-300 ease-out motion-reduce:transition-none group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200"
+                    />
+                    <span
+                      className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 transition-colors duration-300 motion-reduce:transition-none group-hover:text-slate-200 group-focus-visible:text-slate-200"
+                    >
+                      {item.label}
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      </div>
 
-      <div className="mt-auto mb-4">
+      <div className="mt-auto pt-8">
         <ul className="flex gap-4">
           <li>
             <a href="https://github.com/your-username" aria-label="GitHub profile" className="hover:underline">
