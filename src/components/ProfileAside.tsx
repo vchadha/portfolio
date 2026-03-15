@@ -20,13 +20,12 @@ const sectionIds = navItems.map((item) => item.href.replace("#", ""));
 
 export default function ProfileAside() {
   const { visibleSection, activeSection, navigateTo } = useActiveSection(sectionIds);
-  const [scanIndex, setScanIndex] = useState(-1);
   const [announcement, setAnnouncement] = useState("");
 
   // Persist scroll position
   useScrollMemory();
 
-  // On mount: restore scroll position and run nav scan animation
+  // On mount: restore scroll position
   useEffect(() => {
     const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
@@ -42,19 +41,6 @@ export default function ProfileAside() {
           .querySelector(savedSection)
           ?.scrollIntoView({ behavior: "smooth", block: "start" });
       });
-    }
-
-    // Scan animation down to the last explicitly navigated section
-    const activeIndex = navItems.findIndex((item) => item.href === savedSection);
-    if (!prefersReduced) {
-      navItems.forEach((_, i) => {
-      if (i > activeIndex) return;
-        setTimeout(() => setScanIndex(i), i * 180);
-      });
-      const resetDelay = activeIndex * 180 + 300; // 300ms after last item
-      setTimeout(() => setScanIndex(-1), resetDelay);
-    } else {
-      setScanIndex(activeIndex);
     }
   }, []);
 
@@ -108,12 +94,8 @@ export default function ProfileAside() {
 
       <nav id="nav" aria-label="On-page navigation" className="mb-8">
         <ul className="mt-16">
-          {navItems.map((item, index) => {
-            // Highlight is driven purely by what's visible in the viewport
-            const isVisible = visibleSection === item.href;
-            const isScanning = scanIndex === index;
-            const isHighlighted = isVisible; // only viewport drives the highlight
-            const isSweeping = isScanning;   // transient scan animation only
+          {navItems.map((item) => {
+            const isHighlighted = visibleSection === item.href;
 
             return (
               <li key={item.href}>
@@ -133,7 +115,7 @@ export default function ProfileAside() {
                       motion-reduce:transition-none
                       group-hover:w-16 group-hover:bg-slate-200
                       group-focus-visible:w-16 group-focus-visible:bg-slate-200
-                      ${isHighlighted || isSweeping ? "w-16 bg-slate-200" : "w-8"}
+                      ${isHighlighted ? "w-16 bg-slate-200" : "w-8"}
                     `}
                   />
                   <span
@@ -141,7 +123,7 @@ export default function ProfileAside() {
                       text-xs font-bold uppercase tracking-widest
                       transition-colors duration-300 motion-reduce:transition-none
                       group-hover:text-slate-200 group-focus-visible:text-slate-200
-                      ${isHighlighted || isSweeping ? "text-slate-200" : "text-slate-500"}
+                      ${isHighlighted ? "text-slate-200" : "text-slate-500"}
                     `}
                   >
                     {item.label}
