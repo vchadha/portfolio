@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useActiveSection } from "@/hooks/useActiveSection";
+import { cn } from "@/lib/utils";
 
 interface NavItem {
   href: string;
@@ -87,7 +88,10 @@ export default function ProfileAside() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className={`group flex items-center py-3 ${isVisible ? "active" : ""}`}
+                    className={cn(
+                      "group flex items-center py-3",
+                      isVisible && "active"
+                    )}
                     aria-current={isVisible ? "location" : undefined}
                   >
                     <span className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all duration-300 ease-out group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none" />
