@@ -66,11 +66,10 @@ export default function ProfileAside() {
 
         {/* Role */}
         <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
-          Software Engineer
+          Senior Software Engineer
         </h2>
         <p className="mt-4 max-w-xs leading-normal">
-          Building resilient, formally verified software. Also sometimes I make
-          games.
+          Building resilient, formally verified software. Also, I make games.
         </p>
 
         {/* Nav — hidden on mobile */}

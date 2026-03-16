@@ -9,7 +9,22 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Varun Chadha",
-  description: "Portfolio",
+  description:
+    "Senior software engineer building resilient, formally verified systems.",
+  openGraph: {
+    title: "Varun Chadha",
+    description:
+      "Senior software engineer building resilient, formally verified systems.",
+    url: "https://varunchadha.dev",
+    siteName: "Varun Chadha",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Varun Chadha",
+    description:
+      "Senior software engineer building resilient, formally verified systems.",
+  },
 };
 
 export default function RootLayout({

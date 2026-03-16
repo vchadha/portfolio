@@ -15,9 +15,7 @@ export default function About() {
       <div>
         <p className="mb-4">
           I'm a software engineer who cares deeply about building things that
-          work — provably, reliably, and under pressure. I have a soft spot for
-          any problem that rewards thinking carefully before writing a single
-          line of code.
+          work — provably, reliably, and under pressure.
         </p>
         <p className="mb-4">
           Currently I'm a senior engineer at{" "}
@@ -30,8 +28,8 @@ export default function About() {
           >
             Capital One
           </a>
-          , where I build financial ledger software — distributed systems that
-          handle millions of transactions and where correctness, integrity, and
+          , where I build financial ledger software handling up to 50 million
+          accounts daily — distributed systems where correctness, integrity, and
           availability aren't negotiable. My work spans everything from
           designing tamper-resistant data pipelines and hitting sub-150ms
           transaction targets, to championing formal verification as a practical
@@ -55,18 +53,11 @@ export default function About() {
           design.
         </p>
         <p className="mb-4">
-          Outside of financial systems, my deepest technical passion is game
-          development and engine architecture. There's something uniquely
-          demanding about building a game engine from scratch — you're
-          simultaneously a compiler writer, a real-time systems engineer, a
-          renderer, and a tools developer. It's one of the few domains where
-          performance, correctness, and creativity all collide at once, and I
-          find that irresistible.
-        </p>
-        <p className="mb-4">
-          I'm equally drawn to the intersection of formal methods and
-          engineering — building software that can be reasoned about and proven
-          right, not just tested into confidence.
+          Outside of financial systems, my deepest passion is game development
+          and engine architecture — one of the few domains where performance,
+          correctness, and real-time systems all collide at once. I've shipped
+          several games across game jams and led teams building engines from
+          scratch.
         </p>
         <p>
           Away from the keyboard I'm usually cooking Indian food, hunting for

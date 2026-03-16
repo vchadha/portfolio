@@ -1,9 +1,11 @@
 export interface Game {
   title: string;
   url: string;
+  repo?: string;
   image: string;
   imageAspect?: "video" | "square" | "cover";
   jam: string;
+  role?: string;
   authors: string[];
   myName: string;
   description: string;
@@ -12,11 +14,57 @@ export interface Game {
 
 export const games: Game[] = [
   {
+    title: "EECS Survival",
+    url: "https://github.com/justinro-underscore/EECSurvival-Game",
+    repo: "https://github.com/justinro-underscore/EECSurvival-Game",
+    image: "/images/games/eecs-survival.png",
+    imageAspect: "cover",
+    jam: "Software Engineering · 2019",
+    role: "Engine Lead",
+    authors: [
+      "Varun Chadha",
+      "Justin Roderman",
+      "Harrison Luo",
+      "Alex Kunz",
+      "Noah Brabec",
+    ],
+    myName: "Varun Chadha",
+    description:
+      "A bullet-hell game built on a custom Java engine, written from scratch. \
+      Led the engine team implementing a BeanShell script interpreter for cutscene rendering, \
+      a physics and collision system, sprite animation system, and an audio engine. \
+      Supported a full 5-level game with distinct boss attack patterns per level, \
+      a comprehensive test suite, and an automated input fuzzer for stability testing.",
+    techs: ["Java", "LWJGL", "OpenAL", "BeanShell", "Bullet Hell"],
+  },
+  {
+    title: "SPRAWL",
+    url: "https://chemelia.itch.io/sprawl",
+    repo: "https://github.com/ameliajmoser/city-planning-game",
+    image: "/images/games/sprawl.png",
+    imageAspect: "cover",
+    jam: "Graduate Project · 2021",
+    role: "Team Lead",
+    authors: [
+      "Varun Chadha",
+      "Amelia Moser",
+      "Aidan Myers",
+      "Jonah Tostrud",
+    ],
+    myName: "Varun Chadha",
+    description:
+      "A 3D narrative city-builder exploring community engagement and healthy urban design. \
+      Led the team as project manager and technical lead — coordinating across design, programming, \
+      and art disciplines to deliver a playable experience built in Unity.",
+    techs: ["Unity", "C#", "City Builder", "Narrative"],
+  },
+  {
     title: "The Final Hour",
     url: "https://clayxavier.itch.io/the-final-hour",
     image: "/images/games/the-final-hour.jpg",
     imageAspect: "cover",
     jam: "MADE @ THE MADE · 2025",
+    role: "Hardware Engineer",
     authors: [
       "Justin Roderman",
       "Varun Chadha",
@@ -39,18 +87,21 @@ export const games: Game[] = [
   {
     title: "Dino Soar",
     url: "https://justinro-underscore.itch.io/dino-soar",
+    repo: "https://github.com/justinro-underscore/DinoJam2023",
     image: "/images/games/dino-soar.png",
     imageAspect: "cover",
     jam: "DINOJAM3 · 2023",
     authors: ["Justin Roderman", "Varun Chadha", "Sean Poole", "Alex Shadley"],
     myName: "Varun Chadha",
     description:
-      "A QWOP-style pteranodon flying game built for DINOJAM3. Implemented the level selection screen, menu system, enemy AI, and designed gameplay levels.",
+      "A QWOP-style pteranodon flying game built for DINOJAM3. Implemented the level \
+      selection screen, menu system, enemy AI, and designed gameplay levels.",
     techs: ["Unity", "C#", "Game Jam", "Dino Jam"],
   },
   {
     title: "Tick Tick Za!",
     url: "https://justinro-underscore.itch.io/tick-tick-za",
+    repo: "https://github.com/The-Lost-Rats/CosmicCrust",
     image: "/images/games/tick-tick-za.png",
     imageAspect: "cover",
     jam: "Ludum Dare 51 · 2022",
@@ -65,6 +116,7 @@ export const games: Game[] = [
   {
     title: "Lost & Raturn",
     url: "https://justinro-underscore.itch.io/lost-raturn",
+    repo: "https://github.com/justinro-underscore/Lost-Raturn",
     image: "/images/games/lost-raturn.jpg",
     imageAspect: "cover",
     jam: "Global Game Jam · 2021",

@@ -30,11 +30,12 @@ export const experiences: Experience[] = [
     company: "Capital One",
     url: "https://www.capitalone.com",
     description:
-      "Co-led major redesign of financial transaction processing, improving performance \
-      and reliability. Migrated database infrastructure from Cassandra to DynamoDB, \
-      designing schemas aligned to a single-table paradigm. Led triage and resolution of \
-      AWS Redis production issues, reducing downtime incidents. Researched regional failover \
-      and data recovery strategies for high availability.",
+      "Co-led major redesign of financial transaction processing supporting 50 million \
+      daily account transactions, improving performance and reliability. \
+      Migrated database infrastructure from Cassandra to DynamoDB, designing \
+      schemas aligned to a single-table paradigm. Led triage and resolution of AWS Redis \
+      production issues, reducing downtime incidents. Researched regional failover and \
+      data recovery strategies for high availability.",
     techs: ["Docker", "Cassandra", "DynamoDB", "Redis"],
   },
   {
@@ -44,11 +45,11 @@ export const experiences: Experience[] = [
     company: "Capital One",
     url: "https://www.capitalone.com",
     description:
-      "Built core financial ledger microservices in Scala with ZIO and Cassandra. \
-      Built monitoring dashboards and alerting systems using Splunk and New Relic. \
-      Led project to purge accounts securely from our financial ledger, ensuring \
-      regulatory compliance without performance degradation. Mentored on-call engineers \
-      and conducted alerting audits to improve incident response efficiency.",
+      "Built core financial ledger microservices in Scala with ZIO and Cassandra supporting \
+      12 million daily account transactions. Built monitoring dashboards and alerting \
+      systems using Splunk and New Relic. Led project to purge accounts securely from our \
+      financial ledger, ensuring regulatory compliance without performance degradation. \
+      Mentored on-call engineers and conducted alerting audits to improve incident response efficiency.",
     techs: ["Scala", "ZIO", "Cassandra", "Splunk", "New Relic"],
   },
   {
@@ -58,10 +59,9 @@ export const experiences: Experience[] = [
     company: "UW–Madison",
     url: "https://www.wisc.edu",
     description:
-      "Conducted research on IoT device detection for combating Intimate Partner \
-      Surveillance (IPS). Developed a Python market analysis tool for consumer spy \
-      devices and simulated sensor spoofing attacks in self-driving car scenarios using \
-      CARLA and Openpilot. Published at USENIX Security 2023.",
+      "Conducted research on IoT device detection for combating Intimate Partner Surveillance (IPS). \
+      Developed a Python market analysis tool for consumer spy devices and simulated sensor spoofing \
+      attacks in self-driving car scenarios using CARLA and Openpilot. Published at USENIX Security 2023.",
     techs: ["Python", "CARLA", "Openpilot", "IoT", "Cyber-Physical Systems"],
   },
   {
@@ -72,9 +72,9 @@ export const experiences: Experience[] = [
     url: null,
     description:
       "Intern at Capital One (2021) — built an ML-based text extraction pipeline with \
-      in-memory caching and Kafka streams. Intern at Garmin (2019) — fixed C/C++ bugs \
-      and contributed to UI features. Intern at Red Nova Labs (2017–2018) — built APIs \
-      and SDKs for self-storage management software and implemented OAuth 2.0 authorization.",
+      in-memory caching and Kafka streams. Intern at Garmin (2019) — fixed C/C++ bugs and \
+      contributed to UI features. Intern at Red Nova Labs (2017–2018) — built APIs and SDKs \
+      for self-storage management software and implemented OAuth 2.0 authorization.",
     techs: ["Python", "Kafka", "PostgreSQL", "C/C++", "Ruby on Rails"],
   },
 ];
