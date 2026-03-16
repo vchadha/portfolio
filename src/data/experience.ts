@@ -45,11 +45,10 @@ export const experiences: Experience[] = [
     company: "Capital One",
     url: "https://www.capitalone.com",
     description:
-      "Built core financial ledger microservices in Scala with ZIO and Cassandra supporting \
-      12 million daily account transactions. Built monitoring dashboards and alerting \
-      systems using Splunk and New Relic. Led project to purge accounts securely from our \
-      financial ledger, ensuring regulatory compliance without performance degradation. \
-      Mentored on-call engineers and conducted alerting audits to improve incident response efficiency.",
+      "Built core financial ledger microservices in Scala with ZIO and Cassandra supporting 12 million \
+      daily account transactions. Designed and led a compliant account purge system that removed closed accounts \
+      at scale without performance degradation. Built monitoring infrastructure using Splunk and New Relic, \
+      and mentored on-call engineers to improve incident response efficiency.",
     techs: ["Scala", "ZIO", "Cassandra", "Splunk", "New Relic"],
   },
   {

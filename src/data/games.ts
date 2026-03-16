@@ -33,8 +33,8 @@ export const games: Game[] = [
       "A bullet-hell game built on a custom Java engine, written from scratch. \
       Led the engine team implementing a BeanShell script interpreter for cutscene rendering, \
       a physics and collision system, sprite animation system, and an audio engine. \
-      Supported a full 5-level game with distinct boss attack patterns per level, \
-      a comprehensive test suite, and an automated input fuzzer for stability testing.",
+      Supported a full 5-level game with distinct boss attack patterns, and \
+      a full integration test suite and automated input fuzzer.",
     techs: ["Java", "LWJGL", "OpenAL", "BeanShell", "Bullet Hell"],
   },
   {
