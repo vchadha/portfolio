@@ -37,8 +37,8 @@ export default function ProfileAside() {
         e.key === "j"
           ? (safeIndex + 1) % navItems.length
           : safeIndex === 0
-          ? navItems.length - 1
-          : safeIndex - 1;
+            ? navItems.length - 1
+            : safeIndex - 1;
 
       const target = navItems[targetIndex];
       navigateTo(target.href);
@@ -91,7 +91,7 @@ export default function ProfileAside() {
                     aria-current={isVisible ? "location" : undefined}
                   >
                     <span className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all duration-300 ease-out group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none" />
-                    <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 transition-colors duration-300 group-hover:text-slate-200 group-focus-visible:text-slate-200 motion-reduce:transition-none">
+                    <span className="nav-text text-xs font-bold tracking-widest text-slate-500 uppercase transition-colors duration-300 group-hover:text-slate-200 group-focus-visible:text-slate-200 motion-reduce:transition-none">
                       {item.label}
                     </span>
                   </a>
@@ -113,7 +113,10 @@ export default function ProfileAside() {
         </nav>
       </div>
 
-      <ul className="ml-1 mt-8 flex items-center gap-5" aria-label="Social media">
+      <ul
+        className="mt-8 ml-1 flex items-center gap-5"
+        aria-label="Social media"
+      >
         <li>
           <a
             href="https://github.com/vchadha"

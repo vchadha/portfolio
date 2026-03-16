@@ -45,12 +45,7 @@ export const games: Game[] = [
     imageAspect: "cover",
     jam: "Graduate Project · 2021",
     role: "Team Lead",
-    authors: [
-      "Varun Chadha",
-      "Amelia Moser",
-      "Aidan Myers",
-      "Jonah Tostrud",
-    ],
+    authors: ["Varun Chadha", "Amelia Moser", "Aidan Myers", "Jonah Tostrud"],
     myName: "Varun Chadha",
     description:
       "A 3D narrative city-builder exploring community engagement and healthy urban design. \
@@ -109,9 +104,9 @@ export const games: Game[] = [
     authors: ["Justin Roderman", "Varun Chadha", "Sean Poole"],
     myName: "Varun Chadha",
     description:
-      "A chaotic pizza kitchen game built for Ludum Dare 51 around the theme \"Every 10 Seconds\". \
+      'A chaotic pizza kitchen game built for Ludum Dare 51 around the theme "Every 10 Seconds". \
       Implemented multiple interactive station mini-games (pepper plants, ingredient dispenser, veggie wheel)\
-      and menu systems.",
+      and menu systems.',
     techs: ["Unity", "C#", "Game Jam", "Ludum Dare"],
   },
   {

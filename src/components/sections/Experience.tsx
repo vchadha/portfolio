@@ -18,16 +18,16 @@ export default function Experience() {
             <li key={`${exp.title}-${exp.period}`} className="mb-12">
               <SectionCard>
                 <header
-                  className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2"
+                  className="z-10 mt-1 mb-2 text-xs font-semibold tracking-wide text-slate-500 uppercase sm:col-span-2"
                   aria-label={exp.ariaLabel}
                 >
                   {exp.period}
                 </header>
                 <div className="z-10 sm:col-span-6">
-                  <h3 className="font-medium leading-snug text-slate-200">
+                  <h3 className="leading-snug font-medium text-slate-200">
                     {exp.url ? (
                       <a
-                        className="group/link inline-flex items-baseline text-base font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+                        className="group/link inline-flex items-baseline text-base leading-tight font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
                         href={exp.url}
                         target="_blank"
                         rel="noreferrer noopener"
@@ -43,7 +43,9 @@ export default function Experience() {
                       <span>{exp.title}</span>
                     )}
                   </h3>
-                  <p className="mt-2 text-sm leading-normal">{exp.description}</p>
+                  <p className="mt-2 text-sm leading-normal">
+                    {exp.description}
+                  </p>
                   <TechTagList techs={exp.techs} />
                 </div>
               </SectionCard>
@@ -53,7 +55,7 @@ export default function Experience() {
 
         <div className="mt-12">
           <a
-            className="group/link inline-flex items-baseline text-base font-semibold leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+            className="group/link inline-flex items-baseline text-base leading-tight font-semibold text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
             href="/resume.pdf"
             target="_blank"
             rel="noreferrer noopener"
@@ -67,7 +69,7 @@ export default function Experience() {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
-                  className="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 motion-reduce:transition-none"
+                  className="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1 motion-reduce:transition-none"
                   aria-hidden="true"
                 >
                   <path

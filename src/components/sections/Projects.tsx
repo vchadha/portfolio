@@ -9,7 +9,7 @@ import { games } from "@/data/games";
 
 function SubsectionTitle({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="mb-6 text-xs font-semibold uppercase tracking-widest text-slate-500">
+    <h3 className="mb-6 text-xs font-semibold tracking-widest text-slate-500 uppercase">
       {children}
     </h3>
   );
@@ -30,7 +30,7 @@ function GitHubLink({ href }: { href: string }) {
       target="_blank"
       rel="noreferrer noopener"
       aria-label="View source on GitHub (opens in a new tab)"
-      className="relative mt-2 inline-flex items-center gap-1 text-sm font-medium text-slate-400 hover:text-teal-300 focus-visible:text-teal-300 transition-colors"
+      className="relative mt-2 inline-flex items-center gap-1 text-sm font-medium text-slate-400 transition-colors hover:text-teal-300 focus-visible:text-teal-300"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +57,6 @@ export default function Projects() {
 
       <div>
         <ul className="group/list">
-
           {/* ── Games ────────────────────────────────── */}
           <li className="mb-6">
             <SubsectionTitle>Games</SubsectionTitle>
@@ -74,9 +73,9 @@ export default function Projects() {
               >
                 <div className="z-10 sm:order-2 sm:col-span-6">
                   <SectionLabel>{game.jam}</SectionLabel>
-                  <h3 className="font-medium leading-snug text-slate-200">
+                  <h3 className="leading-snug font-medium text-slate-200">
                     <a
-                      className="group/link inline-flex items-baseline text-base font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+                      className="group/link inline-flex items-baseline text-base leading-tight font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
                       href={game.url}
                       target="_blank"
                       rel="noreferrer noopener"
@@ -88,7 +87,9 @@ export default function Projects() {
                     {game.role && <RoleBadge role={game.role} />}
                   </h3>
                   <AuthorList authors={game.authors} myName={game.myName} />
-                  <p className="mt-2 text-sm leading-normal">{game.description}</p>
+                  <p className="mt-2 text-sm leading-normal">
+                    {game.description}
+                  </p>
                   <TechTagList techs={game.techs} />
                   {game.repo && <GitHubLink href={game.repo} />}
                 </div>
@@ -97,7 +98,7 @@ export default function Projects() {
           ))}
 
           {/* ── Research ─────────────────────────────── */}
-          <li className="mb-6 mt-4">
+          <li className="mt-4 mb-6">
             <SubsectionTitle>Research</SubsectionTitle>
           </li>
 
@@ -106,10 +107,10 @@ export default function Projects() {
               <SectionCard>
                 <div className="z-10 sm:col-span-8">
                   <SectionLabel>{pub.venue}</SectionLabel>
-                  <h3 className="font-medium leading-snug text-slate-200">
+                  <h3 className="leading-snug font-medium text-slate-200">
                     {pub.url ? (
                       <a
-                        className="group/link inline-flex items-baseline text-base font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+                        className="group/link inline-flex items-baseline text-base leading-tight font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
                         href={pub.url}
                         target="_blank"
                         rel="noreferrer noopener"
@@ -123,7 +124,9 @@ export default function Projects() {
                     )}
                   </h3>
                   <AuthorList authors={pub.authors} myName={pub.myName} />
-                  <p className="mt-2 text-sm leading-normal">{pub.description}</p>
+                  <p className="mt-2 text-sm leading-normal">
+                    {pub.description}
+                  </p>
                   <TechTagList techs={pub.techs} />
                 </div>
               </SectionCard>
@@ -131,7 +134,7 @@ export default function Projects() {
           ))}
 
           {/* ── Volunteering ─────────────────────────── */}
-          <li className="mb-6 mt-4">
+          <li className="mt-4 mb-6">
             <SubsectionTitle>Volunteering</SubsectionTitle>
           </li>
 
@@ -140,17 +143,18 @@ export default function Projects() {
               <SectionCard>
                 <div className="z-10 sm:col-span-8">
                   <SectionLabel>{vol.venue}</SectionLabel>
-                  <h3 className="font-medium leading-snug text-slate-200">
+                  <h3 className="leading-snug font-medium text-slate-200">
                     {vol.title} ·{" "}
                     <span className="inline-block">{vol.company}</span>
                   </h3>
-                  <p className="mt-2 text-sm leading-normal">{vol.description}</p>
+                  <p className="mt-2 text-sm leading-normal">
+                    {vol.description}
+                  </p>
                   <TechTagList techs={vol.techs} />
                 </div>
               </SectionCard>
             </li>
           ))}
-
         </ul>
       </div>
     </section>

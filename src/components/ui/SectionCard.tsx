@@ -20,7 +20,7 @@ export default function SectionCard({ children, image }: SectionCardProps) {
 
   return (
     <div
-      className={`group relative grid pb-1 transition-all sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50 ${
+      className={`group relative grid pb-1 transition-all sm:gap-8 md:gap-4 lg:group-hover/list:opacity-50 lg:hover:!opacity-100 ${
         image ? "gap-4 sm:grid-cols-8" : "sm:grid-cols-8"
       }`}
     >

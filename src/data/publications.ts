@@ -26,7 +26,12 @@ export const publications: Publication[] = [
     description:
       "Studied the ecosystem of covert surveillance devices used in intimate partner \
       abuse, analysing detection gaps and consumer spy device markets.",
-    techs: ["Python", "IoT", "Intimate Partner Surveillance", "Security Research"],
+    techs: [
+      "Python",
+      "IoT",
+      "Intimate Partner Surveillance",
+      "Security Research",
+    ],
   },
   {
     venue: "Presentation · CANSec 2019",
@@ -36,6 +41,12 @@ export const publications: Publication[] = [
     myName: "Varun Chadha",
     description:
       "Characterised sensor spoofing attack vectors in unmanned aerial vehicles.",
-    techs: ["ArduCopter", "Python", "LLVM", "Cyber-physical Systems", "Security Research"],
+    techs: [
+      "ArduCopter",
+      "Python",
+      "LLVM",
+      "Cyber-physical Systems",
+      "Security Research",
+    ],
   },
 ];

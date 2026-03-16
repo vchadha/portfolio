@@ -29,5 +29,5 @@ nav a.active .nav-text {
 
 /* Skip links — visible on focus for keyboard users */
 .skip-link {
-  @apply sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-teal-300 focus:px-4 focus:py-3 focus:text-sm focus:font-bold focus:uppercase focus:tracking-widest focus:text-slate-900;
+  @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded focus:bg-teal-300 focus:px-4 focus:py-3 focus:text-sm focus:font-bold focus:tracking-widest focus:text-slate-900 focus:uppercase;
 }
