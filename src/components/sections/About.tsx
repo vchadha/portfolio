@@ -12,72 +12,67 @@ export default function About() {
         </h2>
       </div>
 
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus
-        ex sapien vitae pellentesque sem placerat. In id cursus mi pretium
-        tellus duis convallis. Tempus leo eu aenean sed diam urna tempor.
-        Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis
-        massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper
-        vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra
-        inceptos himenaeos. Lorem ipsum dolor sit amet consectetur adipiscing
-        elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id
-        cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam
-        urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum
-        egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut
-        hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent
-        per conubia nostra inceptos himenaeos. Lorem ipsum dolor sit amet
-        consectetur adipiscing elit. Quisque faucibus ex sapien vitae
-        pellentesque sem placerat. In id cursus mi pretium tellus duis
-        convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus
-        fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada
-        lacinia integer nunc posuere. Ut hendrerit semper vel class aptent
-        taciti sociosqu. Ad litora torquent per conubia nostra inceptos
-        himenaeos. Lorem ipsum dolor sit amet consectetur adipiscing elit.
-        Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus
-        mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
-        tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
-        Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit
-        semper vel class aptent taciti sociosqu. Ad litora torquent per conubia
-        nostra inceptos himenaeos. Lorem ipsum dolor sit amet consectetur
-        adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem
-        placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu
-        aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus
-        bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc
-        posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora
-        torquent per conubia nostra inceptos himenaeos. Lorem ipsum dolor sit
-        amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae
-        pellentesque sem placerat. In id cursus mi pretium tellus duis
-        convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus
-        fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada
-        lacinia integer nunc posuere. Ut hendrerit semper vel class aptent
-        taciti sociosqu. Ad litora torquent per conubia nostra inceptos
-        himenaeos. Lorem ipsum dolor sit amet consectetur adipiscing elit.
-        Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus
-        mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
-        tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
-        Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit
-        semper vel class aptent taciti sociosqu. Ad litora torquent per conubia
-        nostra inceptos himenaeos. Lorem ipsum dolor sit amet consectetur
-        adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem
-        placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu
-        aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus
-        bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc
-        posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora
-        torquent per conubia nostra inceptos himenaeos. Lorem ipsum dolor sit
-        amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae
-        pellentesque sem placerat. In id cursus mi pretium tellus duis
-        convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus
-        fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada
-        lacinia integer nunc posuere. Ut hendrerit semper vel class aptent
-        taciti sociosqu. Ad litora torquent per conubia nostra inceptos
-        himenaeos. Lorem ipsum dolor sit amet consectetur adipiscing elit.
-        Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus
-        mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
-        tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
-        Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit
-        semper vel class aptent taciti sociosqu. Ad litora torquent per conubia
-        nostra inceptos himenaeos.
-      </p>
+      <div>
+        <p className="mb-4">
+          I'm a software engineer who cares deeply about building things that
+          work — provably, reliably, and under pressure. I have a soft spot for
+          any problem that rewards thinking carefully before writing a single
+          line of code.
+        </p>
+        <p className="mb-4">
+          Currently I'm a senior engineer at{" "}
+          <a
+            className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+            href="https://www.capitalone.com"
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label="Capital One (opens in a new tab)"
+          >
+            Capital One
+          </a>
+          , where I build financial ledger software — distributed systems that
+          handle millions of transactions and where correctness, integrity, and
+          availability aren't negotiable. My work spans everything from
+          designing tamper-resistant data pipelines and hitting sub-150ms
+          transaction targets, to championing formal verification as a practical
+          engineering tool rather than an academic curiosity.
+        </p>
+        <p className="mb-4">
+          Before that, I spent time as a graduate researcher at{" "}
+          <a
+            className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+            href="https://www.wisc.edu"
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label="University of Wisconsin-Madison (opens in a new tab)"
+          >
+            UW–Madison
+          </a>
+          , working on combating IoT surveillance and challenging autonomous
+          vehicle security. That research taught me to think rigorously about
+          adversarial systems — how things break, who breaks them, and how to
+          build with that in mind. It's a lens I still carry into every system I
+          design.
+        </p>
+        <p className="mb-4">
+          Outside of financial systems, my deepest technical passion is game
+          development and engine architecture. There's something uniquely
+          demanding about building a game engine from scratch — you're
+          simultaneously a compiler writer, a real-time systems engineer, a
+          renderer, and a tools developer. It's one of the few domains where
+          performance, correctness, and creativity all collide at once, and I
+          find that irresistible.
+        </p>
+        <p className="mb-4">
+          I'm equally drawn to the intersection of formal methods and
+          engineering — building software that can be reasoned about and proven
+          right, not just tested into confidence.
+        </p>
+        <p>
+          Away from the keyboard I'm usually cooking Indian food, hunting for
+          jazz records, or deep in a rabbit hole I'll never fully climb out of.
+        </p>
+      </div>
     </section>
   );
 }

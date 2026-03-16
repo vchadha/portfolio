@@ -64,7 +64,8 @@ export default function ProfileAside() {
         <h1 className="mb-2 text-5xl leading-tight font-bold">Varun Chadha</h1>
         <p className="mb-6 text-2xl font-semibold">Software Engineer</p>
         <p className="mb-6 text-sm font-light">
-          Building formally verified software.
+          Building resilient, formally verified software. Also sometimes I make
+          games.
         </p>
 
         <nav
