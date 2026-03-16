@@ -1,6 +1,5 @@
 "use client";
-
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useActiveSection } from "@/hooks/useActiveSection";
 
 interface NavItem {
@@ -38,8 +37,8 @@ export default function ProfileAside() {
         e.key === "j"
           ? (safeIndex + 1) % navItems.length
           : safeIndex === 0
-            ? navItems.length - 1
-            : safeIndex - 1;
+          ? navItems.length - 1
+          : safeIndex - 1;
 
       const target = navItems[targetIndex];
       navigateTo(target.href);
@@ -69,8 +68,6 @@ export default function ProfileAside() {
         <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
           Software Engineer
         </h2>
-
-        {/* Tagline */}
         <p className="mt-4 max-w-xs leading-normal">
           Building resilient, formally verified software. Also sometimes I make
           games.
@@ -84,18 +81,18 @@ export default function ProfileAside() {
         >
           <ul className="mt-16 w-max">
             {navItems.map((item) => {
+              // visibleSection drives both the active class and aria-current
+              // so the highlight always reflects where the user actually is
               const isVisible = visibleSection === item.href;
               return (
                 <li key={item.href}>
                   <a
                     href={item.href}
                     className={`group flex items-center py-3 ${isVisible ? "active" : ""}`}
-                    aria-current={
-                      activeSection === item.href ? "location" : undefined
-                    }
+                    aria-current={isVisible ? "location" : undefined}
                   >
                     <span className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all duration-300 ease-out group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none" />
-                    <span className="nav-text text-xs font-bold tracking-widest text-slate-500 uppercase transition-colors duration-300 group-hover:text-slate-200 group-focus-visible:text-slate-200 motion-reduce:transition-none">
+                    <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 transition-colors duration-300 group-hover:text-slate-200 group-focus-visible:text-slate-200 motion-reduce:transition-none">
                       {item.label}
                     </span>
                   </a>
@@ -103,14 +100,21 @@ export default function ProfileAside() {
               );
             })}
           </ul>
+          <p className="mt-8 text-xs text-slate-600" aria-hidden="true">
+            Press{" "}
+            <kbd className="rounded border border-slate-700 px-1.5 py-0.5 font-mono text-slate-500">
+              j
+            </kbd>{" "}
+            /{" "}
+            <kbd className="rounded border border-slate-700 px-1.5 py-0.5 font-mono text-slate-500">
+              k
+            </kbd>{" "}
+            to navigate sections
+          </p>
         </nav>
       </div>
 
-      {/* Social links */}
-      <ul
-        className="mt-8 ml-1 flex items-center gap-5"
-        aria-label="Social media"
-      >
+      <ul className="ml-1 mt-8 flex items-center gap-5" aria-label="Social media">
         <li>
           <a
             href="https://github.com/vchadha"

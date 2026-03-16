@@ -8,10 +8,10 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
-      <a href="#content" className="sr-only focus:not-sr-only">
+      <a href="#content" className="skip-link">
         Skip to content
       </a>
-      <a href="#nav" className="sr-only focus:not-sr-only">
+      <a href="#nav" className="skip-link">
         Skip to navigation
       </a>
       <div className="relative">
