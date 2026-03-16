@@ -1,5 +1,24 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 
+// Wraps sessionStorage to gracefully handle some private browsing,
+// which throws a SecurityError on any sessionStorage access
+const safeStorage = {
+  get: (key: string): string | null => {
+    try {
+      return sessionStorage.getItem(key);
+    } catch {
+      return null;
+    }
+  },
+  set: (key: string, value: string): void => {
+    try {
+      sessionStorage.setItem(key, value);
+    } catch {
+      // Silently fail — scroll restoration won't work in this session
+    }
+  },
+};
+
 export function useActiveSection(sectionIds: string[]) {
   const [visibleSection, setVisibleSection] = useState(`#${sectionIds[0]}`);
   const [activeSection, setActiveSection] = useState(`#${sectionIds[0]}`);
@@ -17,23 +36,22 @@ export function useActiveSection(sectionIds: string[]) {
   // Before unload: save scroll position and active section, strip hash
   useEffect(() => {
     const onBeforeUnload = () => {
-      sessionStorage.setItem(
+      safeStorage.set(
         "activeSection",
         window.location.hash || `#${sectionIds[0]}`
       );
-      sessionStorage.setItem("scrollY", String(window.scrollY));
+      safeStorage.set("scrollY", String(window.scrollY));
       history.replaceState(null, "", window.location.pathname);
     };
     window.addEventListener("beforeunload", onBeforeUnload);
     return () => window.removeEventListener("beforeunload", onBeforeUnload);
   }, []);
 
-  // On mount: restore scroll position then smoothly scroll to active section
   useEffect(() => {
     history.scrollRestoration = "manual";
 
-    const saved = sessionStorage.getItem("activeSection");
-    const savedScrollY = sessionStorage.getItem("scrollY");
+    const saved = safeStorage.get("activeSection");
+    const savedScrollY = safeStorage.get("scrollY");
     const target = saved || `#${sectionIds[0]}`;
 
     activeSectionRef.current = target;
