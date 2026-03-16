@@ -1,6 +1,8 @@
-import SectionCard from "@/components/ui/SectionCard";
-import SectionHeader from "@/components/ui/SectionHeader";
-import TechTagList from "@/components/ui/TechTagList";
+import SectionCard from "@/components/ui/card/SectionCard";
+import SectionHeader from "@/components/ui/card/SectionHeader";
+
+import TechTagList from "@/components/ui/tags/TechTagList";
+
 import { experiences } from "@/data/experience";
 
 export default function Experience() {
@@ -27,13 +29,13 @@ export default function Experience() {
                   <h3 className="leading-snug font-medium text-slate-200">
                     {exp.url ? (
                       <a
-                        className="group/link inline-flex items-baseline text-base leading-tight font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+                        className="link-card"
                         href={exp.url}
                         target="_blank"
-                        rel="noreferrer noopener"
+                        rel="noopener noreferrer"
                         aria-label={`${exp.title} at ${exp.company} (opens in a new tab)`}
                       >
-                        <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block" />
+                        <span className="card-link-overlay" />
                         <span>
                           {exp.title} ·{" "}
                           <span className="inline-block">{exp.company}</span>
@@ -55,10 +57,10 @@ export default function Experience() {
 
         <div className="mt-12">
           <a
-            className="group/link inline-flex items-baseline text-base leading-tight font-semibold text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+            className="link-card group/link font-semibold"
             href="/resume.pdf"
             target="_blank"
-            rel="noreferrer noopener"
+            rel="noopener noreferrer"
             aria-label="View Full Résumé (opens in a new tab)"
           >
             <span>

@@ -1,9 +1,10 @@
-import ProfileAside from "@/components/ProfileAside";
+import ProfileAside from "@/components/layout/ProfileAside";
+import Footer from "@/components/layout/Footer";
+import SpotlightGradient from "@/components/layout/SpotlightGradient";
+
 import About from "@/components/sections/About";
 import Experience from "@/components/sections/Experience";
 import Projects from "@/components/sections/Projects";
-import SpotlightGradient from "@/components/SpotlightGradient";
-import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
