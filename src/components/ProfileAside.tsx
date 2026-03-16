@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import { useActiveSection } from "@/hooks/useActiveSection";
 
@@ -66,7 +67,11 @@ export default function ProfileAside() {
           Building formally verified software.
         </p>
 
-        <nav id="nav" aria-label="On-page navigation">
+        <nav
+          id="nav"
+          aria-label="On-page navigation"
+          className="hidden lg:block"
+        >
           <ul className="mt-16">
             {navItems.map((item) => {
               const isVisible = visibleSection === item.href;
