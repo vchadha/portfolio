@@ -1,7 +1,8 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { useActiveSection } from "@/hooks/useActiveSection";
+import React, { useState, useEffect, useMemo } from "react";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { useActiveSection } from "@/hooks/useActiveSection";
 
 interface NavItem {
   href: string;
@@ -14,9 +15,12 @@ const navItems: NavItem[] = [
   { href: "#projects", label: "Projects" },
 ];
 
-const sectionIds = navItems.map((item) => item.href.replace("#", ""));
-
 export default function ProfileAside() {
+  const sectionIds = useMemo(
+    () => navItems.map((item) => item.href.replace("#", "")),
+    []
+  );
+
   const { visibleSection, activeSection, activeSectionRef, navigateTo } =
     useActiveSection(sectionIds);
   const [announcement, setAnnouncement] = useState("");
@@ -62,7 +66,7 @@ export default function ProfileAside() {
       <div>
         {/* Name */}
         <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
-          <a href="/">Varun Chadha</a>
+          <Link href="/">Varun Chadha</Link>
         </h1>
 
         {/* Role */}
@@ -86,7 +90,7 @@ export default function ProfileAside() {
               const isVisible = visibleSection === item.href;
               return (
                 <li key={item.href}>
-                  <a
+                  <Link
                     href={item.href}
                     className={cn(
                       "group flex items-center py-3",
@@ -98,7 +102,7 @@ export default function ProfileAside() {
                     <span className="nav-text text-xs font-bold tracking-widest text-slate-500 uppercase transition-colors duration-300 group-hover:text-slate-200 group-focus-visible:text-slate-200 motion-reduce:transition-none">
                       {item.label}
                     </span>
-                  </a>
+                  </Link>
                 </li>
               );
             })}
@@ -125,7 +129,7 @@ export default function ProfileAside() {
           <a
             href="https://github.com/vchadha"
             target="_blank"
-            rel="noreferrer noopener"
+            rel="noopener noreferrer"
             aria-label="GitHub (opens in a new tab)"
             className="block text-slate-400 transition-colors hover:text-slate-200"
           >
@@ -145,7 +149,7 @@ export default function ProfileAside() {
           <a
             href="https://www.linkedin.com/in/vchadha023"
             target="_blank"
-            rel="noreferrer noopener"
+            rel="noopener noreferrer"
             aria-label="LinkedIn (opens in a new tab)"
             className="block text-slate-400 transition-colors hover:text-slate-200"
           >
