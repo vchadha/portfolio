@@ -1,16 +1,18 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
+type AspectRatio = "video" | "square" | "cover";
+
 interface SectionCardProps {
   children: React.ReactNode;
   image?: {
     src: string;
     alt: string;
-    aspect?: "video" | "square" | "cover";
+    aspect?: AspectRatio;
   };
 }
 
-const aspectClasses = {
+const aspectClasses: Record<AspectRatio, string> = {
   video: "aspect-video",
   square: "aspect-square",
   cover: "aspect-[4/3]",
