@@ -61,6 +61,7 @@ export const games: Game[] = [
   {
     title: "The Final Hour",
     url: "https://clayxavier.itch.io/the-final-hour",
+    repo: "https://github.com/justinro-underscore/MadeAtMade2025",
     image: "/images/games/the-final-hour.jpg",
     imageAspect: "cover",
     jam: "MADE @ THE MADE · 2025",
