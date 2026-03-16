@@ -7,7 +7,7 @@ export default function Footer() {
           href="https://figma.com/"
           className="font-medium text-slate-400 hover:text-teal-300 focus-visible:text-teal-300"
           target="_blank"
-          rel="noreferrer noopener"
+          rel="noopener noreferrer"
           aria-label="Figma (opens in a new tab)"
         >
           Figma
@@ -17,7 +17,7 @@ export default function Footer() {
           href="https://nextjs.org/"
           className="font-medium text-slate-400 hover:text-teal-300 focus-visible:text-teal-300"
           target="_blank"
-          rel="noreferrer noopener"
+          rel="noopener noreferrer"
           aria-label="Next.js (opens in a new tab)"
         >
           Next.js
@@ -27,7 +27,7 @@ export default function Footer() {
           href="https://tailwindcss.com/"
           className="font-medium text-slate-400 hover:text-teal-300 focus-visible:text-teal-300"
           target="_blank"
-          rel="noreferrer noopener"
+          rel="noopener noreferrer"
           aria-label="Tailwind CSS (opens in a new tab)"
         >
           Tailwind CSS
@@ -37,7 +37,7 @@ export default function Footer() {
           href="https://vercel.com/"
           className="font-medium text-slate-400 hover:text-teal-300 focus-visible:text-teal-300"
           target="_blank"
-          rel="noreferrer noopener"
+          rel="noopener noreferrer"
           aria-label="Vercel (opens in a new tab)"
         >
           Vercel
@@ -47,7 +47,7 @@ export default function Footer() {
           href="https://brittanychiang.com"
           className="font-medium text-slate-400 hover:text-teal-300 focus-visible:text-teal-300"
           target="_blank"
-          rel="noreferrer noopener"
+          rel="noopener noreferrer"
           aria-label="Brittany Chiang's portfolio (opens in a new tab)"
         >
           Brittany Chiang
@@ -57,7 +57,7 @@ export default function Footer() {
           href="https://taamannae.dev"
           className="font-medium text-slate-400 hover:text-teal-300 focus-visible:text-teal-300"
           target="_blank"
-          rel="noreferrer noopener"
+          rel="noopener noreferrer"
           aria-label="Tammy Taabassum's portfolio (opens in a new tab)"
         >
           Tammy Taabassum
@@ -67,7 +67,7 @@ export default function Footer() {
           href="https://perryw-2023.webflow.io/"
           className="font-medium text-slate-400 hover:text-teal-300 focus-visible:text-teal-300"
           target="_blank"
-          rel="noreferrer noopener"
+          rel="noopener noreferrer"
           aria-label="Perry Wang's portfolio (opens in a new tab)"
         >
           Perry Wang
@@ -77,7 +77,7 @@ export default function Footer() {
           href="https://aashreysharma.com/"
           className="font-medium text-slate-400 hover:text-teal-300 focus-visible:text-teal-300"
           target="_blank"
-          rel="noreferrer noopener"
+          rel="noopener noreferrer"
           aria-label="Aashrey Sharma's portfolio (opens in a new tab)"
         >
           Aashrey Sharma
