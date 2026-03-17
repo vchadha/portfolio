@@ -67,44 +67,133 @@
 
 /* Kept outside @layer to outspecify Tailwind utility classes */
 
-.nav-diamond rect {
+.nav-sword-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 32px;
+  /* Clip left side only — hides blade tip when sheathed,
+     allows sword to overflow right over the text */
+  clip-path: inset(0 -200px 0 0);
+}
+
+.sheath-fill {
   fill: var(--border);
   transition: fill 300ms;
 }
 
-.group:hover .nav-diamond rect,
-.group:focus-visible .nav-diamond rect {
+.sheath-rim {
+  fill: var(--text-muted);
+  opacity: 0.5;
+}
+
+.blade-fill {
+  fill: var(--accent);
+  transition: fill 300ms;
+}
+
+.hilt-guard,
+.hilt-pommel {
+  fill: var(--text-muted);
+  transition: fill 300ms;
+}
+
+.hilt-grip {
+  fill: var(--surface);
+  transition: fill 300ms;
+}
+
+/* Sword starts sheathed — blade inside, hilt visible to the right */
+/* Sword renders above nav text when drawn */
+.nav-sword {
+  position: absolute;
+  transform: translateX(2px);
+  transition: transform 300ms steps(4, end);
+  z-index: 10;
+}
+
+/* ── Hover (inactive only) ─────────────────────────────────────────────────── */
+
+.group:hover .nav-sword {
+  transform: translateX(18px);
+}
+
+.group:hover .sheath-fill {
+  fill: var(--text-muted);
+}
+
+.group:hover .hilt-guard,
+.group:hover .hilt-pommel {
   fill: var(--text-primary);
 }
 
-nav a.active .nav-diamond rect {
+.group:hover .hilt-grip {
+  fill: var(--border);
+}
+
+/* ── Active (and active:hover — locks state regardless of hover) ───────────── */
+
+nav a.active .nav-sword,
+nav a.active:hover .nav-sword {
+  transform: translateX(36px);
+  transition: transform 500ms steps(8, end);
+}
+
+nav a.active .sheath-fill,
+nav a.active:hover .sheath-fill {
   fill: var(--accent);
 }
 
-.nav-diamond {
-  transition: transform 300ms ease-out;
-  transform: scale(0.7);
-  transform-origin: center;
+nav a.active .hilt-guard,
+nav a.active:hover .hilt-guard,
+nav a.active .hilt-pommel,
+nav a.active:hover .hilt-pommel {
+  fill: var(--accent);
 }
 
-.group:hover .nav-diamond,
-.group:focus-visible .nav-diamond,
-nav a.active .nav-diamond {
-  transform: scale(1);
+nav a.active .hilt-grip,
+nav a.active:hover .hilt-grip {
+  fill: var(--accent-hover);
 }
+
+/* ─── Nav text ────────────────────────────────────────────────────────────── */
 
 .nav-text {
   color: var(--text-muted);
-  transition: color 300ms;
+  transition: color 300ms, margin-left 300ms steps(4, end);
 }
 
 .group:hover .nav-text,
 .group:focus-visible .nav-text {
   color: var(--text-primary);
+  margin-left: 12px;
 }
 
-nav a.active .nav-text {
+.group:hover .nav-text,
+.group:focus-visible .nav-text {
   color: var(--text-primary);
+  /* Must exceed hover translateX(18px) + sword width (~14px) */
+  margin-left: 36px;
+}
+
+nav a.active .nav-text,
+nav a.active:hover .nav-text {
+  color: var(--text-primary);
+  /* Must exceed active translateX(36px) + sword width (~14px) */
+  margin-left: 56px;
+  transition: color 300ms, margin-left 500ms steps(8, end);
+}
+
+/* ─── Nav focus ring ──────────────────────────────────────────────────────── */
+
+.nav-focus {
+  border-radius: 0.25rem;
+  outline: none;
+}
+
+.nav-focus:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 /* ─── Skip links ──────────────────────────────────────────────────────────── */

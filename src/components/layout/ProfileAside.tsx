@@ -9,6 +9,7 @@ import { useActiveSection } from "@/hooks/useActiveSection";
 
 import ExternalLink from "@/components/ui/content/ExternalLink";
 import PixelDiamond from "@/components/ui/content/PixelDiamond";
+import PixelSword from "@/components/ui/content/PixelSword";
 
 interface NavItem {
   href: string;
@@ -105,7 +106,7 @@ export default function ProfileAside() {
                     )}
                     aria-current={isVisible ? "location" : undefined}
                   >
-                    <PixelDiamond active={isVisible} />
+                    <PixelSword />
                     <span className="nav-text text-xs font-bold tracking-widest uppercase motion-reduce:transition-none">
                       {item.label}
                     </span>
