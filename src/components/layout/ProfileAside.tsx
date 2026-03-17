@@ -99,7 +99,7 @@ export default function ProfileAside() {
                     aria-current={isVisible ? "location" : undefined}
                   >
                     <span className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all duration-300 ease-out group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none" />
-                    <span className="nav-text text-xs font-bold tracking-widest text-slate-500 uppercase transition-colors duration-300 group-hover:text-slate-200 group-focus-visible:text-slate-200 motion-reduce:transition-none">
+                    <span className="nav-text text-xs font-bold tracking-widest text-slate-400 uppercase transition-colors duration-300 group-hover:text-slate-200 group-focus-visible:text-slate-200 motion-reduce:transition-none">
                       {item.label}
                     </span>
                   </Link>
@@ -109,11 +109,11 @@ export default function ProfileAside() {
           </ul>
           <p className="mt-8 text-xs text-slate-600" aria-hidden="true">
             Press{" "}
-            <kbd className="rounded border border-slate-700 px-1.5 py-0.5 font-mono text-slate-500">
+            <kbd className="rounded border border-slate-700 px-1.5 py-0.5 font-mono text-slate-400">
               j
             </kbd>{" "}
             /{" "}
-            <kbd className="rounded border border-slate-700 px-1.5 py-0.5 font-mono text-slate-500">
+            <kbd className="rounded border border-slate-700 px-1.5 py-0.5 font-mono text-slate-400">
               k
             </kbd>{" "}
             to navigate sections

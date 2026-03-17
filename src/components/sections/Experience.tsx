@@ -20,7 +20,7 @@ export default function Experience() {
             <li key={`${exp.title}-${exp.period}`} className="mb-12">
               <SectionCard>
                 <p
-                  className="z-10 mt-1 mb-2 text-xs font-semibold tracking-wide text-slate-500 uppercase sm:col-span-2"
+                  className="z-10 mt-1 mb-2 text-xs font-semibold tracking-wide text-slate-400 uppercase sm:col-span-2"
                   aria-label={exp.ariaLabel}
                 >
                   {exp.period}
