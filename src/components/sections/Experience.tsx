@@ -20,13 +20,13 @@ export default function Experience() {
             <li key={`${exp.title}-${exp.period}`} className="mb-12">
               <SectionCard>
                 <p
-                  className="z-10 mt-1 mb-2 text-xs font-semibold tracking-wide text-slate-400 uppercase sm:col-span-2"
+                  className="z-10 mt-1 mb-2 text-xs font-semibold tracking-wide text-[--text-muted] uppercase sm:col-span-2"
                   aria-label={exp.ariaLabel}
                 >
                   {exp.period}
                 </p>
                 <div className="z-10 sm:col-span-6">
-                  <h3 className="leading-snug font-medium text-slate-200">
+                  <h3 className="leading-snug font-medium text-[--text-primary]">
                     {exp.url ? (
                       <a
                         className="link-card"

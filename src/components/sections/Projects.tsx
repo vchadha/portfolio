@@ -40,7 +40,7 @@ export default function Projects() {
               >
                 <div className="z-10 sm:order-2 sm:col-span-6">
                   <SectionLabel>{game.jam}</SectionLabel>
-                  <h3 className="leading-snug font-medium text-slate-200">
+                  <h3 className="leading-snug font-medium text-[--text-primary]">
                     <a
                       className="link-card"
                       href={game.url}
@@ -74,7 +74,7 @@ export default function Projects() {
               <SectionCard>
                 <div className="z-10 sm:col-span-8">
                   <SectionLabel>{pub.venue}</SectionLabel>
-                  <h3 className="leading-snug font-medium text-slate-200">
+                  <h3 className="leading-snug font-medium text-[--text-primary]">
                     {pub.url ? (
                       <a
                         className="link-card"
@@ -110,7 +110,7 @@ export default function Projects() {
               <SectionCard>
                 <div className="z-10 sm:col-span-8">
                   <SectionLabel>{vol.venue}</SectionLabel>
-                  <h3 className="leading-snug font-medium text-slate-200">
+                  <h3 className="leading-snug font-medium text-[--text-primary]">
                     {vol.title} ·{" "}
                     <span className="inline-block">{vol.company}</span>
                   </h3>

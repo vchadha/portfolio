@@ -4,9 +4,49 @@
   --font-sans: var(--font-inter);
 }
 
+/* Light mode — Sable */
+:root {
+  --bg: #f2e4c4;
+  --surface: #e8d5a8;
+  --border: #d4b896;
+  --text-primary: #2a1f0e;
+  --text-muted: #7a6545;
+  --accent: #8b4513;
+  --accent-secondary: #4a7c6f;
+  --accent-hover: #c4762a;
+  --bg-75: rgba(242, 228, 196, 0.75);
+  --surface-50: rgba(232, 213, 168, 0.5);
+  --accent-tint: color-mix(in srgb, #8b4513 12%, #f2e4c4);
+  --border-60: rgba(212, 184, 150, 0.6);
+}
+
+/* Dark mode — Castlevania */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1728;
+    --surface: #231f3a;
+    --border: #352f52;
+    --text-primary: #e8d5b0;
+    --text-muted: #9688a4;
+    --accent: #c8a84b;
+    --accent-secondary: #6ba898;
+    --accent-hover: #d4703a;
+    --bg-75: rgba(26, 23, 40, 0.75);
+    --surface-50: rgba(35, 31, 58, 0.5);
+    --accent-tint: color-mix(in srgb, #c8a84b 12%, #1a1728);
+    --border-60: rgba(53, 47, 82, 0.6);
+  }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
+    background-color: var(--bg);
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text-muted);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -20,11 +60,11 @@
    utility classes on the nav indicator and text spans */
 nav a.active .nav-indicator {
   width: 4rem;
-  background-color: rgb(226 232 240);
+  background-color: var(--text-primary);
 }
 
 nav a.active .nav-text {
-  color: rgb(226 232 240);
+  color: var(--text-primary);
 }
 
 /* Skip links — visible on focus for keyboard users */
@@ -33,7 +73,9 @@ nav a.active .nav-text {
 }
 
 .skip-link:focus {
-  @apply not-sr-only absolute top-4 left-4 z-50 rounded bg-teal-300 px-4 py-3 text-sm font-bold tracking-widest text-slate-900 uppercase;
+  @apply not-sr-only absolute top-4 left-4 z-50 rounded px-4 py-3 text-sm font-bold tracking-widest uppercase;
+  background-color: var(--accent);
+  color: var(--bg);
 }
 
 /* Invisible full-card click target — expands hit area of card links */
@@ -43,5 +85,38 @@ nav a.active .nav-text {
 
 /* Standard external link style used across experience and project cards */
 .link-card {
-  @apply inline-flex items-baseline text-base leading-tight font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300;
+  @apply inline-flex items-baseline text-base leading-tight font-medium;
+  color: var(--text-primary);
+}
+
+.link-card:hover {
+  color: var(--accent);
+}
+
+.link-card:focus-visible {
+  color: var(--accent);
+}
+
+/* Card hover overlay — the absolute positioned bg behind each card item */
+.card-hover-overlay {
+  position: absolute;
+  inset: -1rem -1rem;
+  z-index: 0;
+  display: none;
+  border-radius: 0.375rem;
+  transition:
+    background-color 150ms,
+    box-shadow 150ms;
+}
+
+@media (min-width: 1024px) {
+  .card-hover-overlay {
+    display: block;
+    inset: -1rem -1.5rem;
+  }
+
+  .group:hover .card-hover-overlay {
+    background-color: var(--surface-50);
+    box-shadow: inset 0 1px 0 0 var(--border-60);
+  }
 }

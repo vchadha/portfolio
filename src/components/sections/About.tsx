@@ -6,8 +6,8 @@ export default function About() {
       className="mb-16 scroll-mt-20 md:mb-24 lg:mb-36 lg:scroll-mt-24"
     >
       {/* Sticky header on mobile/tablet, visually hidden on desktop. */}
-      <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-        <h2 className="text-sm font-bold tracking-widest text-slate-200 uppercase lg:sr-only">
+      <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-[--bg-75] px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+        <h2 className="text-sm font-bold tracking-widest text-[--text-primary] uppercase lg:sr-only">
           About
         </h2>
       </div>
@@ -20,10 +20,10 @@ export default function About() {
         <p className="mb-4">
           Currently I'm a senior engineer at{" "}
           <a
-            className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+            className="font-medium text-[--text-primary] hover:text-[--accent] focus-visible:text-[--accent]"
             href="https://www.capitalone.com"
             target="_blank"
-            rel="noreferrer noopener"
+            rel="noopener noreferrer"
             aria-label="Capital One (opens in a new tab)"
           >
             Capital One
@@ -38,10 +38,10 @@ export default function About() {
         <p className="mb-4">
           Before that, I spent time as a graduate researcher at{" "}
           <a
-            className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+            className="font-medium text-[--text-primary] hover:text-[--accent] focus-visible:text-[--accent]"
             href="https://www.wisc.edu"
             target="_blank"
-            rel="noreferrer noopener"
+            rel="noopener noreferrer"
             aria-label="University of Wisconsin-Madison (opens in a new tab)"
           >
             UW–Madison

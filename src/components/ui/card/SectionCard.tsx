@@ -29,7 +29,7 @@ export default function SectionCard({ children, image }: SectionCardProps) {
         image && "gap-4"
       )}
     >
-      <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg" />
+      <div className="card-hover-overlay" />
       {image && (
         <Image
           src={image.src}
@@ -37,7 +37,7 @@ export default function SectionCard({ children, image }: SectionCardProps) {
           width={320}
           height={240}
           className={cn(
-            "z-10 rounded border-2 border-slate-200/10 object-cover transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1",
+            "z-10 rounded border-2 border-[--border] object-cover transition group-hover:border-[--border-60] sm:order-1 sm:col-span-2 sm:translate-y-1",
             aspectClass
           )}
         />

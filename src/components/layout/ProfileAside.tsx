@@ -65,12 +65,12 @@ export default function ProfileAside() {
 
       <div>
         {/* Name */}
-        <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
+        <h1 className="text-4xl font-bold tracking-tight text-[--text-primary] sm:text-5xl">
           <Link href="/">Varun Chadha</Link>
         </h1>
 
         {/* Role */}
-        <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
+        <h2 className="mt-3 text-lg font-medium tracking-tight text-[--text-primary] sm:text-xl">
           Senior Software Engineer
         </h2>
         <p className="mt-4 max-w-xs leading-normal">
@@ -93,13 +93,13 @@ export default function ProfileAside() {
                   <Link
                     href={item.href}
                     className={cn(
-                      "group flex items-center rounded py-3 focus-visible:ring-2 focus-visible:ring-teal-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 focus-visible:outline-none",
+                      "group flex items-center rounded py-3 focus-visible:ring-2 focus-visible:ring-[--accent] focus-visible:ring-offset-2 focus-visible:ring-offset-[--bg] focus-visible:outline-none",
                       isVisible && "active"
                     )}
                     aria-current={isVisible ? "location" : undefined}
                   >
                     <span className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all duration-300 ease-out group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none" />
-                    <span className="nav-text text-xs font-bold tracking-widest text-slate-400 uppercase transition-colors duration-300 group-hover:text-slate-200 group-focus-visible:text-slate-200 motion-reduce:transition-none">
+                    <span className="nav-text text-xs font-bold tracking-widest text-[--text-muted] uppercase transition-colors duration-300 group-hover:text-[--text-primary] group-focus-visible:text-[--text-primary] motion-reduce:transition-none">
                       {item.label}
                     </span>
                   </Link>
@@ -107,13 +107,13 @@ export default function ProfileAside() {
               );
             })}
           </ul>
-          <p className="mt-8 text-xs text-slate-600" aria-hidden="true">
+          <p className="mt-8 text-xs text-[--text-muted]/60" aria-hidden="true">
             Press{" "}
-            <kbd className="rounded border border-slate-700 px-1.5 py-0.5 font-mono text-slate-400">
+            <kbd className="rounded border border-[--border] px-1.5 py-0.5 font-mono text-[--text-muted]">
               j
             </kbd>{" "}
             /{" "}
-            <kbd className="rounded border border-slate-700 px-1.5 py-0.5 font-mono text-slate-400">
+            <kbd className="rounded border border-[--border] px-1.5 py-0.5 font-mono text-[--text-muted]">
               k
             </kbd>{" "}
             to navigate sections
@@ -131,7 +131,7 @@ export default function ProfileAside() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub (opens in a new tab)"
-            className="-m-2 block p-2 text-slate-400 transition-colors hover:text-slate-200"
+            className="-m-2 block p-2 text-[--text-muted] transition-colors hover:text-[--text-primary]"
           >
             <span className="sr-only">GitHub</span>
             <svg
@@ -152,7 +152,7 @@ export default function ProfileAside() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn (opens in a new tab)"
-            className="-m-2 block p-2 text-slate-400 transition-colors hover:text-slate-200"
+            className="-m-2 block p-2 text-[--text-muted] transition-colors hover:text-[--text-primary]"
           >
             <span className="sr-only">LinkedIn</span>
             <svg

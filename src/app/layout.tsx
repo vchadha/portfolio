@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -6,6 +6,13 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
 });
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f2e4c4" },
+    { media: "(prefers-color-scheme: dark)", color: "#1a1728" },
+  ],
+};
 
 export const metadata: Metadata = {
   manifest: "/favicon/site.webmanifest",
@@ -65,7 +72,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} bg-slate-900 font-sans leading-relaxed text-slate-400 antialiased selection:bg-teal-300 selection:text-teal-900`}
+        className={`${inter.variable} font-sans leading-relaxed antialiased selection:bg-[--accent] selection:text-[--bg]`}
       >
         {children}
       </body>

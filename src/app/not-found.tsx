@@ -7,11 +7,11 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-slate-900 text-slate-400">
-      <p className="font-mono text-sm font-semibold tracking-widest text-teal-300 uppercase">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-[--bg] text-[--text-muted]">
+      <p className="font-mono text-sm font-semibold tracking-widest text-[--accent] uppercase">
         404
       </p>
-      <h1 className="mt-4 text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
+      <h1 className="mt-4 text-4xl font-bold tracking-tight text-[--text-primary] sm:text-5xl">
         Page not found
       </h1>
       <p className="mt-4 max-w-xs text-center leading-normal">
@@ -19,7 +19,7 @@ export default function NotFound() {
       </p>
       <Link
         href="/"
-        className="group mt-8 inline-flex items-center gap-2 font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+        className="group mt-8 inline-flex items-center gap-2 font-medium text-[--text-primary] hover:text-[--accent] focus-visible:text-[--accent]"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
