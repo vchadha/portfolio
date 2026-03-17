@@ -15,7 +15,7 @@ export default function Experience() {
       <SectionHeader title="Experience" />
 
       <div>
-        <ol className="group/list">
+        <ol className="group/list" reversed>
           {experiences.map((exp) => (
             <li key={`${exp.title}-${exp.period}`} className="mb-12">
               <SectionCard>
