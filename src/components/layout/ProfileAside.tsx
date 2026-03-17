@@ -4,8 +4,11 @@ import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
+
 import { useActiveSection } from "@/hooks/useActiveSection";
+
 import ExternalLink from "@/components/ui/content/ExternalLink";
+import PixelDiamond from "@/components/ui/content/PixelDiamond";
 
 interface NavItem {
   href: string;
@@ -102,7 +105,7 @@ export default function ProfileAside() {
                     )}
                     aria-current={isVisible ? "location" : undefined}
                   >
-                    <span className="nav-indicator mr-4 h-px w-8 motion-reduce:transition-none" />
+                    <PixelDiamond active={isVisible} />
                     <span className="nav-text text-xs font-bold tracking-widest uppercase motion-reduce:transition-none">
                       {item.label}
                     </span>
@@ -111,6 +114,7 @@ export default function ProfileAside() {
               );
             })}
           </ul>
+
           <p className="mt-8 text-xs text-[--text-muted]/60" aria-hidden="true">
             Press{" "}
             <kbd className="rounded border border-[--border] px-1.5 py-0.5 font-mono text-[--text-muted]">

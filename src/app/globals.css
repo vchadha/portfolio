@@ -67,17 +67,30 @@
 
 /* Kept outside @layer to outspecify Tailwind utility classes */
 
-.nav-indicator {
-  background-color: var(--border);
-  transition:
-    width 300ms ease-out,
-    background-color 300ms;
+.nav-diamond rect {
+  fill: var(--border);
+  transition: fill 300ms;
 }
 
-.group:hover .nav-indicator,
-.group:focus-visible .nav-indicator {
-  width: 4rem;
-  background-color: var(--text-primary);
+.group:hover .nav-diamond rect,
+.group:focus-visible .nav-diamond rect {
+  fill: var(--text-primary);
+}
+
+nav a.active .nav-diamond rect {
+  fill: var(--accent);
+}
+
+.nav-diamond {
+  transition: transform 300ms ease-out;
+  transform: scale(0.7);
+  transform-origin: center;
+}
+
+.group:hover .nav-diamond,
+.group:focus-visible .nav-diamond,
+nav a.active .nav-diamond {
+  transform: scale(1);
 }
 
 .nav-text {
@@ -88,12 +101,6 @@
 .group:hover .nav-text,
 .group:focus-visible .nav-text {
   color: var(--text-primary);
-}
-
-/* Active nav item */
-nav a.active .nav-indicator {
-  width: 4rem;
-  background-color: var(--text-primary);
 }
 
 nav a.active .nav-text {
