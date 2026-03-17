@@ -39,15 +39,13 @@ export default function ProfileAside() {
       const currentIndex = navItems.findIndex(
         (item) => item.href === activeSectionRef.current
       );
-      const safeIndex = currentIndex === -1 ? 0 : currentIndex;
-      const targetIndex =
-        e.key === "j"
-          ? (safeIndex + 1) % navItems.length
-          : safeIndex === 0
-            ? navItems.length - 1
-            : safeIndex - 1;
+      const lastIndex = navItems.length - 1;
 
-      const target = navItems[targetIndex];
+      // Wrap around in either direction
+      const nextIndex = (currentIndex + 1) % navItems.length;
+      const prevIndex = currentIndex <= 0 ? lastIndex : currentIndex - 1;
+
+      const target = navItems[e.key === "j" ? nextIndex : prevIndex];
       navigateTo(target.href);
       setAnnouncement(`Navigated to ${target.label} section`);
     };
