@@ -19,6 +19,10 @@
   --surface-50: rgba(232, 213, 168, 0.5);
   --accent-tint: color-mix(in srgb, #8b4513 12%, #f2e4c4);
   --border-60: rgba(212, 184, 150, 0.6);
+
+  --fol-dark: #1a3a0a;
+  --fol-mid: #2d5c14;
+  --fol-light: #4a8a28;
 }
 
 /* Dark mode — Castlevania */
@@ -36,6 +40,10 @@
     --surface-50: rgba(35, 31, 58, 0.5);
     --accent-tint: color-mix(in srgb, #c8a84b 12%, #1a1728);
     --border-60: rgba(53, 47, 82, 0.6);
+
+    --fol-dark: #050e05;
+    --fol-mid: #122812;
+    --fol-light: #1e4a1e;
   }
 }
 
@@ -321,15 +329,15 @@ nav a.active .nav-text {
 
 /* ─── Pixel foliage ───────────────────────────────────────────────────────── */
 
-.foliage-vine {
-  fill: var(--text-primary);
-  opacity: 0.25;
+.fol-container {
+  opacity: 0.9;
 }
-.foliage-leaf {
-  fill: var(--accent-secondary);
-  opacity: 0.3;
+.fol-a {
+  fill: var(--fol-dark);
 }
-.foliage-leaf-dark {
-  fill: var(--accent-secondary);
-  opacity: 0.18;
+.fol-b {
+  fill: var(--fol-mid);
+}
+.fol-c {
+  fill: var(--fol-light);
 }
