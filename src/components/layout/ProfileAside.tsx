@@ -131,7 +131,7 @@ export default function ProfileAside() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub (opens in a new tab)"
-            className="block p-2 -m-2 text-slate-400 transition-colors hover:text-slate-200"
+            className="-m-2 block p-2 text-slate-400 transition-colors hover:text-slate-200"
           >
             <span className="sr-only">GitHub</span>
             <svg
@@ -152,7 +152,7 @@ export default function ProfileAside() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn (opens in a new tab)"
-            className="block p-2 -m-2 text-slate-400 transition-colors hover:text-slate-200"
+            className="-m-2 block p-2 text-slate-400 transition-colors hover:text-slate-200"
           >
             <span className="sr-only">LinkedIn</span>
             <svg
