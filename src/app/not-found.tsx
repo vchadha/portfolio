@@ -26,6 +26,7 @@ export default function NotFound() {
           viewBox="0 0 20 20"
           fill="currentColor"
           className="h-4 w-4 transition-transform group-hover:-translate-x-1 motion-reduce:transition-none"
+          role="img"
           aria-hidden="true"
         >
           <path
