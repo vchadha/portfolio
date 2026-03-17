@@ -1,9 +1,12 @@
 "use client";
-
 import { useMousePosition } from "@/hooks/useMousePosition";
 
 export default function SpotlightGradient() {
-  const { x, y } = useMousePosition();
+  const { x, y, hasMovedMouse } = useMousePosition();
+
+  // Don't render until the user has moved their mouse — avoids the
+  // jarring gradient flash on page load
+  if (!hasMovedMouse) return null;
 
   return (
     <div
