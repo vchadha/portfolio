@@ -1,6 +1,6 @@
 import ProfileAside from "@/components/layout/ProfileAside";
 import Footer from "@/components/layout/Footer";
-import SpotlightGradient from "@/components/layout/SpotlightGradient";
+import ScanlineOverlay from "@/components/layout/ScanlineOverlay";
 
 import About from "@/components/sections/About";
 import Experience from "@/components/sections/Experience";
@@ -15,7 +15,7 @@ export default function Home() {
       <a href="#nav" className="skip-link">
         Skip to navigation
       </a>
-      <SpotlightGradient />
+      <ScanlineOverlay />
       <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-16 lg:py-0">
         <div className="lg:flex lg:justify-between lg:gap-4">
           <ProfileAside />
