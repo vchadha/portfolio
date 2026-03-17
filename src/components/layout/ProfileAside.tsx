@@ -93,7 +93,7 @@ export default function ProfileAside() {
                   <Link
                     href={item.href}
                     className={cn(
-                      "group flex items-center py-3",
+                      "group flex items-center rounded py-3 focus-visible:ring-2 focus-visible:ring-teal-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 focus-visible:outline-none",
                       isVisible && "active"
                     )}
                     aria-current={isVisible ? "location" : undefined}
