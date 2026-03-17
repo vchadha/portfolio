@@ -1,12 +1,20 @@
 "use client";
+
 import { useMousePosition } from "@/hooks/useMousePosition";
+
+import { useEffect, useState } from "react";
 
 export default function SpotlightGradient() {
   const { x, y, hasMovedMouse } = useMousePosition();
+  const [reducedMotion, setReducedMotion] = useState(false);
 
-  // Don't render until the user has moved their mouse — avoids the
-  // jarring gradient flash on page load
-  if (!hasMovedMouse) return null;
+  useEffect(() => {
+    setReducedMotion(
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    );
+  }, []);
+
+  if (!hasMovedMouse || reducedMotion) return null;
 
   return (
     <div
