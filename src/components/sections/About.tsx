@@ -1,3 +1,5 @@
+import ExternalLink from "@/components/ui/content/ExternalLink";
+
 export default function About() {
   return (
     <section
@@ -19,15 +21,11 @@ export default function About() {
         </p>
         <p className="mb-4">
           Currently I'm a senior engineer at{" "}
-          <a
-            className="inline-link"
+          <ExternalLink
             href="https://www.capitalone.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Capital One (opens in a new tab)"
-          >
-            Capital One
-          </a>
+            label="Capital One"
+            ariaLabel="Capital One (opens in a new tab)"
+          />
           , where I build financial ledger software handling up to 50 million
           accounts daily — distributed systems where correctness, integrity, and
           availability aren't negotiable. My work spans everything from
@@ -37,15 +35,11 @@ export default function About() {
         </p>
         <p className="mb-4">
           Before that, I spent time as a graduate researcher at{" "}
-          <a
-            className="inline-link"
+          <ExternalLink
             href="https://www.wisc.edu"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="University of Wisconsin-Madison (opens in a new tab)"
-          >
-            UW–Madison
-          </a>
+            label="UW–Madison"
+            ariaLabel="University of Wisconsin-Madison (opens in a new tab)"
+          />
           , working on combating IoT surveillance and challenging autonomous
           vehicle security. That research taught me to think rigorously about
           adversarial systems — how things break, who breaks them, and how to
