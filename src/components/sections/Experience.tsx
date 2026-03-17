@@ -19,12 +19,12 @@ export default function Experience() {
           {experiences.map((exp) => (
             <li key={`${exp.title}-${exp.period}`} className="mb-12">
               <SectionCard>
-                <header
+                <p
                   className="z-10 mt-1 mb-2 text-xs font-semibold tracking-wide text-slate-500 uppercase sm:col-span-2"
                   aria-label={exp.ariaLabel}
                 >
                   {exp.period}
-                </header>
+                </p>
                 <div className="z-10 sm:col-span-6">
                   <h3 className="leading-snug font-medium text-slate-200">
                     {exp.url ? (
