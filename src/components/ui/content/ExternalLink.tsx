@@ -1,15 +1,15 @@
 interface ExternalLinkProps {
   href: string;
-  label: string;
   ariaLabel: string;
   className?: string;
+  children: React.ReactNode;
 }
 
 export default function ExternalLink({
   href,
-  label,
   ariaLabel,
   className = "inline-link",
+  children,
 }: ExternalLinkProps) {
   return (
     <a
@@ -19,7 +19,7 @@ export default function ExternalLink({
       rel="noopener noreferrer"
       aria-label={ariaLabel}
     >
-      {label}
+      {children}
     </a>
   );
 }

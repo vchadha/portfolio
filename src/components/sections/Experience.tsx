@@ -1,6 +1,8 @@
 import SectionCard from "@/components/ui/card/SectionCard";
 import SectionHeader from "@/components/ui/card/SectionHeader";
 
+import ExternalLink from "@/components/ui/content/ExternalLink";
+
 import TechTagList from "@/components/ui/tags/TechTagList";
 
 import { experiences } from "@/data/experience";
@@ -28,19 +30,17 @@ export default function Experience() {
                 <div className="z-10 sm:col-span-6">
                   <h3 className="leading-snug font-medium text-[--text-primary]">
                     {exp.url ? (
-                      <a
-                        className="link-card"
+                      <ExternalLink
                         href={exp.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${exp.title} at ${exp.company} (opens in a new tab)`}
+                        ariaLabel={`${exp.title} at ${exp.company} (opens in a new tab)`}
+                        className="link-card"
                       >
                         <span className="card-link-overlay" />
                         <span>
                           {exp.title} ·{" "}
                           <span className="inline-block">{exp.company}</span>
                         </span>
-                      </a>
+                      </ExternalLink>
                     ) : (
                       <span>{exp.title}</span>
                     )}
@@ -56,12 +56,10 @@ export default function Experience() {
         </ol>
 
         <div className="mt-12">
-          <a
-            className="link-card group/link font-semibold"
+          <ExternalLink
             href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="View Full Résumé (opens in a new tab)"
+            ariaLabel="View Full Résumé (opens in a new tab)"
+            className="link-card group/link font-semibold"
           >
             <span>
               View Full{" "}
@@ -83,7 +81,7 @@ export default function Experience() {
                 </svg>
               </span>
             </span>
-          </a>
+          </ExternalLink>
         </div>
       </div>
     </section>

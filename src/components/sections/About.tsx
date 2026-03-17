@@ -23,9 +23,10 @@ export default function About() {
           Currently I'm a senior engineer at{" "}
           <ExternalLink
             href="https://www.capitalone.com"
-            label="Capital One"
             ariaLabel="Capital One (opens in a new tab)"
-          />
+          >
+            Capital One
+          </ExternalLink>
           , where I build financial ledger software handling up to 50 million
           accounts daily — distributed systems where correctness, integrity, and
           availability aren't negotiable. My work spans everything from
@@ -37,9 +38,10 @@ export default function About() {
           Before that, I spent time as a graduate researcher at{" "}
           <ExternalLink
             href="https://www.wisc.edu"
-            label="UW–Madison"
             ariaLabel="University of Wisconsin-Madison (opens in a new tab)"
-          />
+          >
+            UW–Madison
+          </ExternalLink>
           , working on combating IoT surveillance and challenging autonomous
           vehicle security. That research taught me to think rigorously about
           adversarial systems — how things break, who breaks them, and how to

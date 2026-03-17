@@ -36,35 +36,45 @@ export default function Footer() {
         Designed in{" "}
         <ExternalLink
           href="https://figma.com/"
-          label="Figma"
           ariaLabel="Figma (opens in a new tab)"
           className="inline-link-muted"
-        />
+        >
+          Figma
+        </ExternalLink>
         . Built with{" "}
         <ExternalLink
           href="https://nextjs.org/"
-          label="Next.js"
           ariaLabel="Next.js (opens in a new tab)"
           className="inline-link-muted"
-        />{" "}
-        and{" "}
+        >
+          Next.js
+        </ExternalLink>
+        . Built with{" "}
         <ExternalLink
           href="https://tailwindcss.com/"
-          label="Tailwind CSS"
           ariaLabel="Tailwind CSS (opens in a new tab)"
           className="inline-link-muted"
-        />
+        >
+          Tailwind CSS
+        </ExternalLink>
         , deployed with{" "}
         <ExternalLink
           href="https://vercel.com/"
-          label="Vercel"
           ariaLabel="Vercel (opens in a new tab)"
           className="inline-link-muted"
-        />
+        >
+          Vercel
+        </ExternalLink>
         . Design inspired by{" "}
         {inspirationLinks.map((link, i) => (
           <span key={link.href}>
-            <ExternalLink {...link} className="inline-link-muted" />
+            <ExternalLink
+              href={link.href}
+              ariaLabel={link.ariaLabel}
+              className="inline-link-muted"
+            >
+              {link.label}
+            </ExternalLink>
             {i < inspirationLinks.length - 2 && ", "}
             {i === inspirationLinks.length - 2 && ", and "}
           </span>

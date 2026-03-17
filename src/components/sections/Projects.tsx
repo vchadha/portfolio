@@ -8,6 +8,7 @@ import TechTagList from "@/components/ui/tags/TechTagList";
 import AuthorList from "@/components/ui/content/AuthorList";
 import RoleBadge from "@/components/ui/content/RoleBadge";
 import GitHubLink from "@/components/ui/content/GitHubLink";
+import ExternalLink from "@/components/ui/content/ExternalLink";
 
 import { publications } from "@/data/publications";
 import { volunteering } from "@/data/volunteering";
@@ -41,16 +42,14 @@ export default function Projects() {
                 <div className="z-10 sm:order-2 sm:col-span-6">
                   <SectionLabel>{game.jam}</SectionLabel>
                   <h3 className="leading-snug font-medium text-[--text-primary]">
-                    <a
-                      className="link-card"
+                    <ExternalLink
                       href={game.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${game.title} (opens in a new tab)`}
+                      ariaLabel={`${game.title} (opens in a new tab)`}
+                      className="link-card"
                     >
                       <span className="card-link-overlay" />
                       {game.title}
-                    </a>
+                    </ExternalLink>
                     {game.role && <RoleBadge role={game.role} />}
                   </h3>
                   <AuthorList authors={game.authors} myName={game.myName} />
@@ -76,16 +75,14 @@ export default function Projects() {
                   <SectionLabel>{pub.venue}</SectionLabel>
                   <h3 className="leading-snug font-medium text-[--text-primary]">
                     {pub.url ? (
-                      <a
-                        className="link-card"
+                      <ExternalLink
                         href={pub.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${pub.title} (opens in a new tab)`}
+                        ariaLabel={`${pub.title} (opens in a new tab)`}
+                        className="link-card"
                       >
                         <span className="card-link-overlay" />
                         {pub.title}
-                      </a>
+                      </ExternalLink>
                     ) : (
                       pub.title
                     )}
