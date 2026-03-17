@@ -60,8 +60,8 @@ export default function About() {
           scratch.
         </p>
         <p>
-          Away from the keyboard I'm usually cooking Indian food, hunting for
-          jazz records, or deep in a rabbit hole I'll never fully climb out of.
+          Away from the keyboard I'm usually cooking Indian food, listening to
+          jazz, or working on whatever game jam is coming up next.
         </p>
       </div>
     </section>
