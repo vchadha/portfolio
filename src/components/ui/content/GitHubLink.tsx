@@ -9,7 +9,7 @@ export default function GitHubLink({ href }: GitHubLinkProps) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="View source on GitHub (opens in a new tab)"
-      className="relative mt-2 inline-flex items-center gap-1 text-sm font-medium text-slate-400 transition-colors hover:text-teal-300 focus-visible:text-teal-300"
+      className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-slate-400 transition-colors hover:text-teal-300 focus-visible:text-teal-300"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
