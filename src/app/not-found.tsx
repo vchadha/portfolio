@@ -1,11 +1,13 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+"use client";
 
-export const metadata: Metadata = {
-  title: "404 — Varun Chadha",
-};
+import Link from "next/link";
+import { useEffect } from "react";
 
 export default function NotFound() {
+  useEffect(() => {
+    document.documentElement.style.opacity = "1";
+  }, []);
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
       <p className="font-mono text-sm font-semibold tracking-widest text-[--accent] uppercase">
