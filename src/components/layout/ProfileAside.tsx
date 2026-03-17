@@ -93,13 +93,13 @@ export default function ProfileAside() {
                   <Link
                     href={item.href}
                     className={cn(
-                      "group flex items-center rounded py-3 focus-visible:ring-2 focus-visible:ring-[--accent] focus-visible:ring-offset-2 focus-visible:ring-offset-[--bg] focus-visible:outline-none",
+                      "group nav-focus flex items-center py-3",
                       isVisible && "active"
                     )}
                     aria-current={isVisible ? "location" : undefined}
                   >
-                    <span className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all duration-300 ease-out group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none" />
-                    <span className="nav-text text-xs font-bold tracking-widest text-[--text-muted] uppercase transition-colors duration-300 group-hover:text-[--text-primary] group-focus-visible:text-[--text-primary] motion-reduce:transition-none">
+                    <span className="nav-indicator mr-4 h-px w-8 motion-reduce:transition-none" />
+                    <span className="nav-text text-xs font-bold tracking-widest uppercase motion-reduce:transition-none">
                       {item.label}
                     </span>
                   </Link>
@@ -128,10 +128,8 @@ export default function ProfileAside() {
         <li>
           <a
             href="https://github.com/vchadha"
-            target="_blank"
-            rel="noopener noreferrer"
             aria-label="GitHub (opens in a new tab)"
-            className="-m-2 block p-2 text-[--text-muted] transition-colors hover:text-[--text-primary]"
+            className="social-link"
           >
             <span className="sr-only">GitHub</span>
             <svg
@@ -152,7 +150,7 @@ export default function ProfileAside() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn (opens in a new tab)"
-            className="-m-2 block p-2 text-[--text-muted] transition-colors hover:text-[--text-primary]"
+            className="social-link"
           >
             <span className="sr-only">LinkedIn</span>
             <svg

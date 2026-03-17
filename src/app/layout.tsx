@@ -72,7 +72,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} font-sans leading-relaxed antialiased selection:bg-[--accent] selection:text-[--bg]`}
+        className={`${inter.variable} font-sans leading-relaxed antialiased`}
       >
         {children}
       </body>

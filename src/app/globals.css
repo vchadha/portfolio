@@ -49,6 +49,12 @@
     color: var(--text-muted);
   }
 
+  /* Selection highlight */
+  ::selection {
+    background-color: var(--accent);
+    color: var(--bg);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
@@ -56,8 +62,34 @@
   }
 }
 
-/* Kept outside @layer intentionally — needs to outspecify Tailwind's
-   utility classes on the nav indicator and text spans */
+/* ─── Nav ─────────────────────────────────────────────────────────────────── */
+
+/* Kept outside @layer to outspecify Tailwind utility classes */
+
+.nav-indicator {
+  background-color: var(--border);
+  transition:
+    width 300ms ease-out,
+    background-color 300ms;
+}
+
+.group:hover .nav-indicator,
+.group:focus-visible .nav-indicator {
+  width: 4rem;
+  background-color: var(--text-primary);
+}
+
+.nav-text {
+  color: var(--text-muted);
+  transition: color 300ms;
+}
+
+.group:hover .nav-text,
+.group:focus-visible .nav-text {
+  color: var(--text-primary);
+}
+
+/* Active nav item */
 nav a.active .nav-indicator {
   width: 4rem;
   background-color: var(--text-primary);
@@ -67,7 +99,8 @@ nav a.active .nav-text {
   color: var(--text-primary);
 }
 
-/* Skip links — visible on focus for keyboard users */
+/* ─── Skip links ──────────────────────────────────────────────────────────── */
+
 .skip-link {
   @apply sr-only;
 }
@@ -78,26 +111,14 @@ nav a.active .nav-text {
   color: var(--bg);
 }
 
+/* ─── Card ────────────────────────────────────────────────────────────────── */
+
 /* Invisible full-card click target — expands hit area of card links */
 .card-link-overlay {
   @apply absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block;
 }
 
-/* Standard external link style used across experience and project cards */
-.link-card {
-  @apply inline-flex items-baseline text-base leading-tight font-medium;
-  color: var(--text-primary);
-}
-
-.link-card:hover {
-  color: var(--accent);
-}
-
-.link-card:focus-visible {
-  color: var(--accent);
-}
-
-/* Card hover overlay — the absolute positioned bg behind each card item */
+/* Hover overlay — surface wash behind each card on hover */
 .card-hover-overlay {
   position: absolute;
   inset: -1rem -1rem;
@@ -119,4 +140,78 @@ nav a.active .nav-text {
     background-color: var(--surface-50);
     box-shadow: inset 0 1px 0 0 var(--border-60);
   }
+}
+
+/* List of cards — unhovered siblings dim when one card is hovered */
+.card-list-item {
+  opacity: 1;
+  transition: opacity 150ms;
+}
+
+.group\/list:hover .card-list-item {
+  opacity: 0.5;
+}
+
+.group\/list:hover .card-list-item:hover {
+  opacity: 1;
+}
+
+/* ─── Links ───────────────────────────────────────────────────────────────── */
+
+/* Standard external link style used across experience and project cards */
+.link-card {
+  @apply inline-flex items-baseline text-base leading-tight font-medium;
+  color: var(--text-primary);
+  transition: color 150ms;
+}
+
+.link-card:hover,
+.link-card:focus-visible {
+  color: var(--accent);
+}
+
+/* Inline prose link on primary text — used in About, not-found */
+.inline-link {
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: color 150ms;
+}
+
+/* Inline prose link on muted text — used in Footer */
+.inline-link-muted {
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 150ms;
+}
+
+.inline-link:hover,
+.inline-link:focus-visible,
+.inline-link-muted:hover,
+.inline-link-muted:focus-visible {
+  color: var(--accent);
+}
+
+/* Social icon links in ProfileAside */
+.social-link {
+  display: block;
+  padding: 0.5rem;
+  margin: -0.5rem;
+  color: var(--text-muted);
+  transition: color 150ms;
+}
+
+.social-link:hover,
+.social-link:focus-visible {
+  color: var(--text-primary);
+}
+
+/* Nav focus ring */
+.nav-focus {
+  border-radius: 0.25rem;
+  outline: none;
+}
+
+.nav-focus:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }

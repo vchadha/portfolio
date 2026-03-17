@@ -5,7 +5,7 @@ export default function Footer() {
         Designed in{" "}
         <a
           href="https://figma.com/"
-          className="font-medium text-[--text-muted] hover:text-[--accent] focus-visible:text-[--accent]"
+          className="inline-link-muted"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Figma (opens in a new tab)"
@@ -15,7 +15,7 @@ export default function Footer() {
         . Built with{" "}
         <a
           href="https://nextjs.org/"
-          className="font-medium text-[--text-muted] hover:text-[--accent] focus-visible:text-[--accent]"
+          className="inline-link-muted"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Next.js (opens in a new tab)"
@@ -25,7 +25,7 @@ export default function Footer() {
         and{" "}
         <a
           href="https://tailwindcss.com/"
-          className="font-medium text-[--text-muted] hover:text-[--accent] focus-visible:text-[--accent]"
+          className="inline-link-muted"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Tailwind CSS (opens in a new tab)"
@@ -35,7 +35,7 @@ export default function Footer() {
         , deployed with{" "}
         <a
           href="https://vercel.com/"
-          className="font-medium text-[--text-muted] hover:text-[--accent] focus-visible:text-[--accent]"
+          className="inline-link-muted"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Vercel (opens in a new tab)"
@@ -45,7 +45,7 @@ export default function Footer() {
         . Design inspired by{" "}
         <a
           href="https://brittanychiang.com"
-          className="font-medium text-[--text-muted] hover:text-[--accent] focus-visible:text-[--accent]"
+          className="inline-link-muted"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Brittany Chiang's portfolio (opens in a new tab)"
@@ -55,7 +55,7 @@ export default function Footer() {
         ,{" "}
         <a
           href="https://taamannae.dev"
-          className="font-medium text-[--text-muted] hover:text-[--accent] focus-visible:text-[--accent]"
+          className="inline-link-muted"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Tammy Taabassum's portfolio (opens in a new tab)"
@@ -65,7 +65,7 @@ export default function Footer() {
         ,{" "}
         <a
           href="https://perryw-2023.webflow.io/"
-          className="font-medium text-[--text-muted] hover:text-[--accent] focus-visible:text-[--accent]"
+          className="inline-link-muted"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Perry Wang's portfolio (opens in a new tab)"
@@ -75,7 +75,7 @@ export default function Footer() {
         , and{" "}
         <a
           href="https://aashreysharma.com/"
-          className="font-medium text-[--text-muted] hover:text-[--accent] focus-visible:text-[--accent]"
+          className="inline-link-muted"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Aashrey Sharma's portfolio (opens in a new tab)"

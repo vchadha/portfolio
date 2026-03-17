@@ -20,7 +20,7 @@ export default function About() {
         <p className="mb-4">
           Currently I'm a senior engineer at{" "}
           <a
-            className="font-medium text-[--text-primary] hover:text-[--accent] focus-visible:text-[--accent]"
+            className="inline-link"
             href="https://www.capitalone.com"
             target="_blank"
             rel="noopener noreferrer"
@@ -38,7 +38,7 @@ export default function About() {
         <p className="mb-4">
           Before that, I spent time as a graduate researcher at{" "}
           <a
-            className="font-medium text-[--text-primary] hover:text-[--accent] focus-visible:text-[--accent]"
+            className="inline-link"
             href="https://www.wisc.edu"
             target="_blank"
             rel="noopener noreferrer"
