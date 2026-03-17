@@ -6,6 +6,8 @@ import About from "@/components/sections/About";
 import Experience from "@/components/sections/Experience";
 import Projects from "@/components/sections/Projects";
 
+import PixelDivider from "@/components/ui/content/PixelDivider";
+
 export default function Home() {
   return (
     <>
@@ -25,7 +27,9 @@ export default function Home() {
             className="pt-24 lg:w-[52%] lg:py-24"
           >
             <About />
+            <PixelDivider />
             <Experience />
+            <PixelDivider />
             <Projects />
             <Footer />
           </main>

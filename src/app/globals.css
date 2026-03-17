@@ -264,3 +264,57 @@ nav a.active .nav-text {
     display: none;
   }
 }
+
+/* ─── Pixel divider ───────────────────────────────────────────────────────── */
+
+.pixel-divider {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  opacity: 0.5;
+}
+
+/* Dots */
+.divider-dot {
+  fill: var(--text-muted);
+  opacity: 0.35;
+}
+
+/* Accent diamonds */
+.divider-accent {
+  fill: var(--accent);
+}
+
+/* Blade */
+.divider-blade {
+  fill: var(--text-muted);
+}
+.divider-highlight {
+  fill: var(--text-primary);
+  opacity: 0.5;
+}
+.divider-shadow {
+  fill: var(--border);
+  opacity: 0.6;
+}
+.divider-fuller {
+  fill: var(--surface);
+}
+
+/* Guard and pommel */
+.divider-guard {
+  fill: var(--text-muted);
+}
+.divider-guard-hi {
+  fill: var(--text-primary);
+  opacity: 0.4;
+}
+
+/* Grip */
+.divider-grip {
+  fill: var(--surface);
+}
+.divider-wrap {
+  fill: var(--text-primary);
+  opacity: 0.5;
+}
