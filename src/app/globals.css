@@ -318,3 +318,18 @@ nav a.active .nav-text {
   fill: var(--text-primary);
   opacity: 0.5;
 }
+
+/* ─── Pixel foliage ───────────────────────────────────────────────────────── */
+
+.foliage-vine {
+  fill: var(--text-primary);
+  opacity: 0.25;
+}
+.foliage-leaf {
+  fill: var(--accent-secondary);
+  opacity: 0.3;
+}
+.foliage-leaf-dark {
+  fill: var(--accent-secondary);
+  opacity: 0.18;
+}
