@@ -1,13 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Varun Chadha - Portfolio
+
+Personal portfolio site built with Next.js, Tailwind CSS, and TypeScript.
+
+**Live site:** TODO:
+
+---
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/) — React framework
+- [Tailwind CSS](https://tailwindcss.com/) — styling
+- [TypeScript](https://www.typescriptlang.org/) — type safety
+- [Inter](https://rsms.me/inter/) — typeface
+- [Vercel](https://vercel.com/) — deployment
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+bun install
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
+
+```
+src/
+├── app/                  # Next.js app router (layout, page, globals)
+├── components/
+│   ├── layout/           # Page-level structural components
+│   ├── sections/         # Scrollable content sections (About, Experience, Projects)
+│   └── ui/               # Reusable primitives (cards, tags, badges)
+├── data/                 # Content as typed data (experience, games, publications)
+├── hooks/                # Custom React hooks
+└── lib/                  # Shared utilities
+```
+
+## Development
+
+**Format code:**
+
+```bash
+bun run format
+```
+
+**Check formatting without writing:**
+
+```bash
+bun run format:check
+```
+
+## Acknowledgements
+
+Designed in [Figma](https://figma.com). Design inspired by
+[Brittany Chiang](https://brittanychiang.com),
+[Tammy Taabassum](https://taamannae.dev),
+[Perry Wang](https://perryw-2023.webflow.io/),
+and [Aashrey Sharma](https://aashreysharma.com).
