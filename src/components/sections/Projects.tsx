@@ -34,7 +34,7 @@ export default function Projects() {
               <SectionCard
                 image={{
                   src: game.image,
-                  alt: `${game.title} screenshot`,
+                  alt: game.imageAlt,
                   aspect: game.imageAspect ?? "cover",
                 }}
               >
