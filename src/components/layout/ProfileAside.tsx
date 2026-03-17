@@ -66,7 +66,10 @@ export default function ProfileAside() {
 
       <div>
         {/* Name */}
-        <h1 className="text-4xl font-bold tracking-tight text-[--text-primary] sm:text-5xl">
+        <h1
+          className="text-2xl font-bold tracking-tight text-[--text-primary] sm:text-3xl"
+          style={{ fontFamily: "var(--font-press-start)" }}
+        >
           <Link href="/">Varun Chadha</Link>
         </h1>
 

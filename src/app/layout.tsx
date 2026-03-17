@@ -1,10 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Press_Start_2P } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+});
+
+const pressStart = Press_Start_2P({
+  variable: "--font-press-start",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const viewport: Viewport = {
@@ -72,7 +78,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} font-sans leading-relaxed antialiased`}
+        className={`${inter.variable} ${pressStart.variable} font-sans leading-relaxed antialiased`}
       >
         {children}
       </body>
