@@ -51,6 +51,10 @@ bun run format
 bun run format:check
 ```
 
+## Deployment
+
+The site deploys automatically to Vercel on push to `main`.
+
 ## Acknowledgements
 
 Designed in [Figma](https://figma.com). Design inspired by
