@@ -10,6 +10,10 @@ import { useActiveSection } from "@/hooks/useActiveSection";
 import ExternalLink from "@/components/ui/content/ExternalLink";
 import PixelDiamond from "@/components/ui/content/PixelDiamond";
 
+import { profile } from "@/data/profile";
+
+const NAME = profile.name;
+
 interface NavItem {
   href: string;
   label: string;
@@ -30,6 +34,31 @@ export default function ProfileAside() {
   const { visibleSection, activeSection, activeSectionRef, navigateTo } =
     useActiveSection(sectionIds);
   const [announcement, setAnnouncement] = useState("");
+
+  const [displayed, setDisplayed] = useState("");
+  const [typing, setTyping] = useState(true);
+
+  // Typewriter effect — runs once on mount
+  useEffect(() => {
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reducedMotion) {
+      setDisplayed(NAME);
+      setTyping(false);
+      return;
+    }
+
+    if (displayed.length < NAME.length) {
+      const timeout = setTimeout(() => {
+        setDisplayed(NAME.slice(0, displayed.length + 1));
+      }, 100);
+      return () => clearTimeout(timeout);
+    } else {
+      setTyping(false);
+    }
+  }, [displayed]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -73,16 +102,24 @@ export default function ProfileAside() {
           className="text-2xl font-bold tracking-tight text-[--text-primary] sm:text-3xl"
           style={{ fontFamily: "var(--font-press-start)" }}
         >
-          <Link href="/">Varun Chadha</Link>
+          <Link href="/">
+            {displayed}
+            <span
+              className={cn("pixel-cursor", !typing && "opacity-0")}
+              aria-hidden="true"
+            >
+              █
+            </span>
+          </Link>
         </h1>
 
         {/* Role */}
         <h2 className="mt-3 text-lg font-medium tracking-tight text-[--text-primary] sm:text-xl">
-          Senior Software Engineer
+          {profile.role}
         </h2>
-        <p className="mt-4 max-w-xs leading-normal">
-          Building resilient, formally verified software. Also, I make games.
-        </p>
+
+        {/* Tag Line */}
+        <p className="mt-4 max-w-xs leading-normal">{profile.tagline}</p>
 
         {/* Nav — hidden on mobile */}
         <nav
@@ -135,7 +172,7 @@ export default function ProfileAside() {
       >
         <li>
           <ExternalLink
-            href="https://github.com/vchadha"
+            href={profile.github}
             ariaLabel="GitHub (opens in a new tab)"
             className="social-link"
           >
@@ -153,7 +190,7 @@ export default function ProfileAside() {
         </li>
         <li>
           <ExternalLink
-            href="https://www.linkedin.com/in/vchadha023"
+            href={profile.linkedin}
             ariaLabel="LinkedIn (opens in a new tab)"
             className="social-link"
           >

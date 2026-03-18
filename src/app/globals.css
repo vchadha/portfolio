@@ -334,3 +334,20 @@ nav a.active .nav-text {
   fill: var(--accent-secondary);
   opacity: 0.18;
 }
+
+/* ─── Pixel cursor ───────────────────────────────────────────────────────── */
+
+.pixel-cursor {
+  display: inline-block;
+  color: var(--accent);
+  margin-left: 2px;
+  font-size: 0.45em;
+  vertical-align: middle;
+  transition: opacity 200ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pixel-cursor {
+    display: none;
+  }
+}
