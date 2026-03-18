@@ -174,19 +174,19 @@ nav a.active .nav-text {
 /* Standard external link style used across experience and project cards */
 .link-card {
   @apply inline-flex items-baseline text-base leading-tight font-medium;
-  color: var(--text-primary);
+  color: var(--accent);
   transition: color 150ms;
 }
 
 .link-card:hover,
 .link-card:focus-visible {
-  color: var(--accent);
+  color: var(--accent-hover);
 }
 
 /* Inline prose link on primary text — used in About, not-found */
 .inline-link {
   font-weight: 500;
-  color: var(--text-primary);
+  color: var(--accent);
   transition: color 150ms;
 }
 
@@ -197,8 +197,12 @@ nav a.active .nav-text {
   transition: color 150ms;
 }
 
-.inline-link:hover,
-.inline-link:focus-visible,
+.inline-link-muted {
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 150ms;
+}
+
 .inline-link-muted:hover,
 .inline-link-muted:focus-visible {
   color: var(--accent);
