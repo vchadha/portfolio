@@ -5,7 +5,7 @@ import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 
-import { useActiveSection } from "@/hooks/useActiveSection";
+import { useActiveSectionContext } from "@/context/ActiveSectionContext";
 
 import ExternalLink from "@/components/ui/content/ExternalLink";
 import PixelDiamond from "@/components/ui/content/PixelDiamond";
@@ -15,15 +15,9 @@ import { profile, navItems } from "@/data/profile";
 const NAME = profile.name;
 
 export default function ProfileAside() {
-  // Memoize section IDs to avoid unnecessary recalculations
-  const sectionIds = useMemo(
-    () => navItems.map((item) => item.href.replace("#", "")),
-    []
-  );
-
   // Custom hook manages active section state, navigation, and scroll restoration
-  const { visibleSection, activeSection, activeSectionRef, navigateTo } =
-    useActiveSection(sectionIds);
+  const { visibleSection, activeSectionRef, navigateTo } =
+    useActiveSectionContext();
 
   // State for screen reader announcements during keyboard navigation
   const [announcement, setAnnouncement] = useState("");

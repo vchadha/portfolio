@@ -1,17 +1,14 @@
 "use client";
 
-import { useActiveSection } from "@/hooks/useActiveSection";
+import { useActiveSectionContext } from "@/context/ActiveSectionContext";
+
 import Link from "next/link";
 import { useMemo } from "react";
+
 import { navItems } from "@/data/profile";
 
 export default function MobileSectionDots() {
-  const sectionIds = useMemo(
-    () => navItems.map((item) => item.href.replace("#", "")),
-    []
-  );
-
-  const { visibleSection } = useActiveSection(sectionIds);
+  const { visibleSection } = useActiveSectionContext();
 
   return (
     <nav

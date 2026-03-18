@@ -1,3 +1,5 @@
+import { ActiveSectionProvider } from "@/context/ActiveSectionContext";
+
 import ProfileAside from "@/components/layout/ProfileAside";
 import Footer from "@/components/layout/Footer";
 import ScanlineOverlay from "@/components/layout/ScanlineOverlay";
@@ -14,7 +16,8 @@ import PixelDivider from "@/components/ui/content/PixelDivider";
 
 export default function Home() {
   return (
-    <>
+    // Wrap the entire app in ActiveSectionProvider to manage section visibility and navigation state across components using single instance of the hook
+    <ActiveSectionProvider>
       {/* Skip links for accessibility - allow keyboard users to jump to content or navigation */}
       <a href="#content" className="skip-link">
         Skip to content
@@ -53,6 +56,6 @@ export default function Home() {
           </main>
         </div>
       </div>
-    </>
+    </ActiveSectionProvider>
   );
 }
