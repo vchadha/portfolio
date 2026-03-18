@@ -10,20 +10,9 @@ import { useActiveSection } from "@/hooks/useActiveSection";
 import ExternalLink from "@/components/ui/content/ExternalLink";
 import PixelDiamond from "@/components/ui/content/PixelDiamond";
 
-import { profile } from "@/data/profile";
+import { profile, navItems } from "@/data/profile";
 
 const NAME = profile.name;
-
-interface NavItem {
-  href: string;
-  label: string;
-}
-
-const navItems: NavItem[] = [
-  { href: "#about", label: "About" },
-  { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-];
 
 export default function ProfileAside() {
   const sectionIds = useMemo(

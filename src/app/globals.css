@@ -413,3 +413,20 @@ nav a.active .nav-text {
     display: none;
   }
 }
+
+/* ─── Mobile section dots ─────────────────────────────────────────────────── */
+
+.dot-inactive {
+  width: 6px;
+  height: 6px;
+  background-color: var(--border);
+  /* Square — pixel art, no border-radius */
+}
+
+.dot-active {
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent);
+  /* Scale up slightly when active */
+  transform: scale(1.4);
+}
