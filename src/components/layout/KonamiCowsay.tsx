@@ -130,7 +130,7 @@ export default function KonamiCowsay() {
           className="text-left"
           style={{
             color: "var(--accent)",
-            fontSize: "clamp(0.45rem, 1.2vw, 0.6rem)",
+            fontSize: "clamp(0.7rem, 1.6vw, 1.0rem)",
             lineHeight: "1.8",
             whiteSpace: "pre",
           }}
@@ -141,7 +141,7 @@ export default function KonamiCowsay() {
         <p
           style={{
             color: "var(--text-muted)",
-            fontSize: "0.45rem",
+            fontSize: "0.6rem",
             letterSpacing: "0.08em",
             textTransform: "uppercase",
           }}
