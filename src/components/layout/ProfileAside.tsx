@@ -114,7 +114,12 @@ export default function ProfileAside() {
         </h1>
 
         {/* Role */}
-        <h2 className="mt-3 text-lg font-medium tracking-tight text-[--text-primary] sm:text-xl">
+        <h2
+          className="mt-3 text-base tracking-tight text-[--text-muted] sm:text-lg"
+          style={{
+            fontFamily: "var(--font-silkscreen)",
+          }}
+        >
           {profile.role}
         </h2>
 
