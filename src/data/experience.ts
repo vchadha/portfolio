@@ -32,7 +32,7 @@ export const experiences: Experience[] = [
     description:
       "Co-led major redesign of financial transaction processing supporting 50 million \
       daily account transactions, improving performance and reliability. \
-      Migrated database infrastructure from Cassandra to DynamoDB, designing \
+      Migrated database infrastructure from Cassandra to DynamoDB, co-designing \
       schemas aligned to a single-table paradigm. Led triage and resolution of AWS Redis \
       production issues, reducing downtime incidents. Researched regional failover and \
       data recovery strategies for high availability.",
@@ -46,7 +46,7 @@ export const experiences: Experience[] = [
     url: "https://www.capitalone.com",
     description:
       "Built core financial ledger microservices in Scala with ZIO and Cassandra supporting 12 million \
-      daily account transactions. Designed and led a compliant account purge system that removed closed accounts \
+      daily account transactions. Co-designed a compliant account purge system that removed closed accounts \
       at scale without performance degradation. Built monitoring infrastructure using Splunk and New Relic, \
       and mentored on-call engineers to improve incident response efficiency.",
     techs: ["Scala", "ZIO", "Cassandra", "Splunk", "New Relic"],
@@ -60,7 +60,7 @@ export const experiences: Experience[] = [
     description:
       "Conducted research on IoT device detection for combating Intimate Partner Surveillance (IPS). \
       Developed a Python market analysis tool for consumer spy devices and simulated sensor spoofing \
-      attacks in self-driving car scenarios using CARLA and Openpilot. Published at USENIX Security 2023.",
+      attacks in self-driving car scenarios using CARLA and Openpilot.",
     techs: ["Python", "CARLA", "Openpilot", "IoT", "Cyber-Physical Systems"],
   },
   {
@@ -70,7 +70,7 @@ export const experiences: Experience[] = [
     company: null,
     url: null,
     description:
-      "Intern at Capital One (2021) — built an ML-based text extraction pipeline with \
+      "Intern at Capital One (2021) — contributed to a ML-based text extraction pipeline with \
       in-memory caching and Kafka streams. Intern at Garmin (2019) — fixed C/C++ bugs and \
       contributed to UI features. Intern at Red Nova Labs (2017–2018) — built APIs and SDKs \
       for self-storage management software and implemented OAuth 2.0 authorization.",

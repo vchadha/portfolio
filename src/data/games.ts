@@ -35,8 +35,8 @@ export const games: Game[] = [
     myName: "Varun Chadha",
     description:
       "A bullet-hell game built on a custom Java engine, written from scratch. \
-      Led the engine team implementing a BeanShell script interpreter for cutscene rendering, \
-      a physics and collision system, sprite animation system, and an audio engine. \
+      Led the engine team implementing a cutscene system leveraging BeanShell, \
+      a physics and collision system, sprite animation system, and an audio system. \
       Supported a full 5-level game with distinct boss attack patterns, and \
       a full integration test suite and automated input fuzzer.",
     techs: ["Java", "LWJGL", "OpenAL", "BeanShell", "Bullet Hell"],
@@ -86,9 +86,8 @@ export const games: Game[] = [
     description:
       "A top-down naval, time, space shooter built for MADE @ THE MADE with \
        an alternative controller — a salvaged children's toy clock soldered into \
-       a custom gamepad. Responsible for hardware engineering: wiring and soldering \
-       the clock's internal components into a functional USB controller, mapping \
-       physical dials and buttons to in-game inputs.",
+       a custom gamepad. Co-responsible for hardware engineering: wiring and soldering \
+       the clock's internal components into a functional USB controller.",
     techs: ["Unity", "C#", "Embedded Systems", "Alt Ctrl", "Game Jam"],
   },
   {
@@ -105,7 +104,7 @@ export const games: Game[] = [
     myName: "Varun Chadha",
     description:
       "A QWOP-style pteranodon flying game built for DINOJAM3. Implemented the level \
-      selection screen, menu system, enemy AI, and designed gameplay levels.",
+      selection screen, menu system, enemy AI, and co-designed gameplay levels.",
     techs: ["Unity", "C#", "Game Jam", "Dino Jam"],
   },
   {
