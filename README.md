@@ -33,6 +33,7 @@ src/
 │   ├── sections/         # Scrollable content sections (About, Experience, Projects)
 │   └── ui/               # Reusable primitives (cards, tags, badges)
 ├── data/                 # Content as typed data (experience, games, publications)
+├── context/              # React context providers (ActiveSectionContext)
 ├── hooks/                # Custom React hooks
 └── lib/                  # Shared utilities
 ```
