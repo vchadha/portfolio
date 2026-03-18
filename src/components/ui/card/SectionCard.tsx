@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 import { cn } from "@/lib/utils";
 
 type AspectRatio = "video" | "square" | "cover";
@@ -25,11 +24,15 @@ export default function SectionCard({ children, image }: SectionCardProps) {
   return (
     <div
       className={cn(
-        "card-list-item group relative grid pb-1 sm:grid-cols-8 sm:gap-8 md:gap-4",
+        "group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:group-hover/list:opacity-50 lg:hover:!opacity-100",
         image && "gap-4"
       )}
     >
-      <div className="card-hover-overlay" />
+      {/* Hover overlay with all four corner brackets */}
+      <div className="card-hover-overlay" aria-hidden="true">
+        <div className="card-hover-inner" />
+      </div>
+
       {image && (
         <Image
           src={image.src}
