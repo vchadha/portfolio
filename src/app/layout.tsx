@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Press_Start_2P } from "next/font/google";
+import { Inter, Press_Start_2P, Silkscreen } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -11,6 +11,12 @@ const pressStart = Press_Start_2P({
   variable: "--font-press-start",
   subsets: ["latin"],
   weight: "400",
+});
+
+const silkscreen = Silkscreen({
+  variable: "--font-silkscreen",
+  subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 export const viewport: Viewport = {
@@ -78,7 +84,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${pressStart.variable} font-sans leading-relaxed antialiased`}
+        className={`${inter.variable} ${pressStart.variable} ${silkscreen.variable} font-sans leading-relaxed antialiased`}
       >
         {children}
       </body>

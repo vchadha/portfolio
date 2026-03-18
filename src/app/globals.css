@@ -3,6 +3,7 @@
 @theme inline {
   --font-sans: var(--font-inter);
   --font-pixel: var(--font-press-start);
+  --font-silkscreen: var(--font-silkscreen);
 }
 
 /* Light mode — Sable */

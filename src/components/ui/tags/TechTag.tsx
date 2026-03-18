@@ -8,13 +8,22 @@ interface TechTagProps {
 export default function TechTag({ label, className }: TechTagProps) {
   return (
     <div
-      className={cn(
-        "flex items-center rounded-full px-3 py-1 text-xs leading-5 font-medium",
-        className
-      )}
+      className={cn("inline-flex items-center px-2.5 py-1", className)}
       style={{
-        backgroundColor: "var(--accent-tint)",
+        fontFamily: "var(--font-silkscreen)",
+        fontSize: "0.70rem",
+        letterSpacing: "0.04em",
+        lineHeight: "1.6",
         color: "var(--accent)",
+        backgroundColor: "var(--accent-tint)",
+        border: "1px solid var(--accent)",
+        /* Notched corners — cuts 3px diagonal at each corner. */
+        clipPath: `polygon(
+          3px 0%, calc(100% - 3px) 0%,
+          100% 3px, 100% calc(100% - 3px),
+          calc(100% - 3px) 100%, 3px 100%,
+          0% calc(100% - 3px), 0% 3px
+        )`,
       }}
     >
       {label}
