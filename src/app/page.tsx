@@ -35,6 +35,7 @@ export default function Home() {
             <Experience />
             <PixelDivider />
             <Projects />
+            <PixelDivider />
             <Footer />
           </main>
         </div>
