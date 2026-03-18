@@ -30,6 +30,7 @@ export default function Projects() {
             <SubsectionTitle>Games</SubsectionTitle>
           </li>
 
+          {/* Map through game projects with images and metadata */}
           {games.map((game) => (
             <li key={game.title} className="mb-12">
               <SectionCard
@@ -40,6 +41,7 @@ export default function Projects() {
                 }}
               >
                 <div className="z-10 sm:order-2 sm:col-span-6">
+                  {/* Game jam or competition label */}
                   <SectionLabel>{game.jam}</SectionLabel>
                   <h3 className="leading-snug font-medium text-[--text-primary]">
                     <ExternalLink
@@ -50,13 +52,16 @@ export default function Projects() {
                       <span className="card-link-overlay" />
                       {game.title}
                     </ExternalLink>
+                    {/* Optional role badge (e.g., "Lead Developer") */}
                     {game.role && <RoleBadge role={game.role} />}
                   </h3>
+                  {/* List of collaborators */}
                   <AuthorList authors={game.authors} myName={game.myName} />
                   <p className="mt-2 text-sm leading-normal">
                     {game.description}
                   </p>
                   <TechTagList techs={game.techs} />
+                  {/* Optional GitHub repository link */}
                   {game.repo && <GitHubLink href={game.repo} />}
                 </div>
               </SectionCard>
@@ -68,10 +73,12 @@ export default function Projects() {
             <SubsectionTitle>Research</SubsectionTitle>
           </li>
 
+          {/* Map through research publications */}
           {publications.map((pub) => (
             <li key={pub.title} className="mb-12">
               <SectionCard>
                 <div className="z-10 sm:col-span-8">
+                  {/* Publication venue (conference, journal, etc.) */}
                   <SectionLabel>{pub.venue}</SectionLabel>
                   <h3 className="leading-snug font-medium text-[--text-primary]">
                     {pub.url ? (
@@ -87,6 +94,7 @@ export default function Projects() {
                       pub.title
                     )}
                   </h3>
+                  {/* List of co-authors */}
                   <AuthorList authors={pub.authors} myName={pub.myName} />
                   <p className="mt-2 text-sm leading-normal">
                     {pub.description}
@@ -102,10 +110,12 @@ export default function Projects() {
             <SubsectionTitle>Volunteering</SubsectionTitle>
           </li>
 
+          {/* Map through volunteering experiences */}
           {volunteering.map((vol) => (
             <li key={vol.title} className="mb-12">
               <SectionCard>
                 <div className="z-10 sm:col-span-8">
+                  {/* Organization or event */}
                   <SectionLabel>{vol.venue}</SectionLabel>
                   <h3 className="leading-snug font-medium text-[--text-primary]">
                     {vol.title} ·{" "}

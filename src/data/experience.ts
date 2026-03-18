@@ -1,11 +1,11 @@
 export interface Experience {
-  period: string;
-  ariaLabel: string;
-  title: string;
-  company: string | null;
-  url: string | null;
-  description: string;
-  techs: string[];
+  period: string; // Display period (e.g., "Dec 2024 — Present")
+  ariaLabel: string; // Accessible label for screen readers (e.g., "December 2024 to Present")
+  title: string; // Job title
+  company: string | null; // Company name, null for non-company entries
+  url: string | null; // Company website URL, null if not applicable
+  description: string; // Job description/responsibilities
+  techs: string[]; // Technologies used
 }
 
 export const experiences: Experience[] = [

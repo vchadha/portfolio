@@ -19,6 +19,7 @@ const aspectClasses: Record<AspectRatio, string> = {
 };
 
 export default function SectionCard({ children, image }: SectionCardProps) {
+  // Determine aspect ratio for image display
   const aspectClass = aspectClasses[image?.aspect ?? "video"];
 
   return (
@@ -28,11 +29,12 @@ export default function SectionCard({ children, image }: SectionCardProps) {
         image && "gap-4"
       )}
     >
-      {/* Hover overlay with all four corner brackets */}
+      {/* Invisible overlay that appears on hover - creates corner brackets effect */}
       <div className="card-hover-overlay" aria-hidden="true">
         <div className="card-hover-inner" />
       </div>
 
+      {/* Optional image with responsive layout */}
       {image && (
         <Image
           src={image.src}

@@ -20,7 +20,9 @@ const safeStorage = {
 };
 
 export function useActiveSection(sectionIds: string[]) {
+  // Tracks which section is currently most visible in the viewport
   const [visibleSection, setVisibleSection] = useState(`#${sectionIds[0]}`);
+  // Tracks the active section in the URL/state (may differ from visibleSection)
   const [activeSection, setActiveSection] = useState(`#${sectionIds[0]}`);
   // Ref mirrors activeSection but updates synchronously for keyboard navigation
   const activeSectionRef = useRef(`#${sectionIds[0]}`);
@@ -48,6 +50,7 @@ export function useActiveSection(sectionIds: string[]) {
   }, []);
 
   useEffect(() => {
+    // Disable automatic scroll restoration to handle it manually
     history.scrollRestoration = "manual";
 
     const saved = safeStorage.get("activeSection");
@@ -61,14 +64,17 @@ export function useActiveSection(sectionIds: string[]) {
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
+    // Restore scroll position and navigate to saved section
     if (saved && savedScrollY) {
       window.scrollTo({ top: parseInt(savedScrollY, 10), behavior: "instant" });
 
       if (reducedMotion) {
+        // Instant navigation for reduced motion users
         document.documentElement.style.opacity = "1";
         document.querySelector(saved)?.scrollIntoView({ behavior: "instant" });
         history.replaceState(null, "", saved);
       } else {
+        // Smooth transition with fade-in effect
         document.documentElement.style.transition = "opacity 0.3s ease";
         document.documentElement.style.opacity = "1";
 
@@ -79,6 +85,7 @@ export function useActiveSection(sectionIds: string[]) {
         return () => clearTimeout(timer);
       }
     } else {
+      // No saved state - just fade in
       document.documentElement.style.opacity = "1";
     }
   }, []);
@@ -93,9 +100,11 @@ export function useActiveSection(sectionIds: string[]) {
           }
         });
       },
+      // Trigger when section is 40% from top/bottom of viewport
       { rootMargin: "-40% 0px -40% 0px", threshold: 0 }
     );
 
+    // Observe all section elements
     sectionIds.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);

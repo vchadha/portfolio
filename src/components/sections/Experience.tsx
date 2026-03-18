@@ -17,10 +17,12 @@ export default function Experience() {
       <SectionHeader title="Experience" />
 
       <div>
+        {/* Reverse chronological order (newest first) */}
         <ol className="group/list" reversed>
           {experiences.map((exp) => (
             <li key={`${exp.title}-${exp.period}`} className="mb-12">
               <SectionCard>
+                {/* Period displayed in top-right on larger screens */}
                 <p
                   className="z-10 mt-1 mb-2 text-xs font-semibold tracking-wide text-[--text-muted] uppercase sm:col-span-2"
                   aria-label={exp.ariaLabel}
@@ -28,6 +30,7 @@ export default function Experience() {
                   {exp.period}
                 </p>
                 <div className="z-10 sm:col-span-6">
+                  {/* Company link if URL exists, otherwise plain text */}
                   <h3 className="leading-snug font-medium text-[--text-primary]">
                     {exp.url ? (
                       <ExternalLink
@@ -48,6 +51,7 @@ export default function Experience() {
                   <p className="mt-2 text-sm leading-normal">
                     {exp.description}
                   </p>
+                  {/* Technology tags used in this role */}
                   <TechTagList techs={exp.techs} />
                 </div>
               </SectionCard>
@@ -55,6 +59,7 @@ export default function Experience() {
           ))}
         </ol>
 
+        {/* Link to full resume */}
         <div className="mt-12">
           <ExternalLink
             href="/resume.pdf"

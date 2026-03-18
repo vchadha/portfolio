@@ -75,7 +75,9 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
+              // Disable automatic scroll restoration to handle manually for better UX
               history.scrollRestoration = 'manual';
+              // Hide content initially if scroll position was saved (prevents flash)
               if (sessionStorage.getItem('scrollY')) {
                 document.documentElement.style.opacity = '0';
               }

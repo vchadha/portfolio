@@ -17,7 +17,7 @@ export default function TechTag({ label, className }: TechTagProps) {
         color: "var(--accent)",
         backgroundColor: "var(--accent-tint)",
         border: "1px solid var(--accent)",
-        /* Notched corners — cuts 3px diagonal at each corner. */
+        /* Notched corners — cuts 3px diagonal at each corner to create pixel art effect */
         clipPath: `polygon(
           3px 0%, calc(100% - 3px) 0%,
           100% 3px, 100% calc(100% - 3px),

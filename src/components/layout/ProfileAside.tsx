@@ -15,19 +15,25 @@ import { profile, navItems } from "@/data/profile";
 const NAME = profile.name;
 
 export default function ProfileAside() {
+  // Memoize section IDs to avoid unnecessary recalculations
   const sectionIds = useMemo(
     () => navItems.map((item) => item.href.replace("#", "")),
     []
   );
 
+  // Custom hook manages active section state, navigation, and scroll restoration
   const { visibleSection, activeSection, activeSectionRef, navigateTo } =
     useActiveSection(sectionIds);
+
+  // State for screen reader announcements during keyboard navigation
   const [announcement, setAnnouncement] = useState("");
 
+  // Typewriter effect state
   const [displayed, setDisplayed] = useState("");
   const [typing, setTyping] = useState(true);
 
-  // Typewriter effect — runs once on mount
+  // Typewriter effect - simulates typing the name character by character
+  // Respects user's reduced motion preference
   useEffect(() => {
     const reducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
@@ -49,6 +55,8 @@ export default function ProfileAside() {
     }
   }, [displayed]);
 
+  // Keyboard navigation - allows j/k keys to navigate between sections
+  // Only works when not focused on form inputs and respects user preferences
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key !== "j" && e.key !== "k") return;
@@ -63,7 +71,7 @@ export default function ProfileAside() {
       );
       const lastIndex = navItems.length - 1;
 
-      // Wrap around in either direction
+      // Wrap around in either direction for seamless navigation
       const nextIndex = (currentIndex + 1) % navItems.length;
       const prevIndex = currentIndex <= 0 ? lastIndex : currentIndex - 1;
 
@@ -160,6 +168,7 @@ export default function ProfileAside() {
         </nav>
       </div>
 
+      {/* Social media links */}
       <ul
         className="mt-8 ml-1 flex items-center gap-5"
         aria-label="Social media"

@@ -15,25 +15,34 @@ import PixelDivider from "@/components/ui/content/PixelDivider";
 export default function Home() {
   return (
     <>
+      {/* Skip links for accessibility - allow keyboard users to jump to content or navigation */}
       <a href="#content" className="skip-link">
         Skip to content
       </a>
       <a href="#nav" className="skip-link">
         Skip to navigation
       </a>
+
+      {/* Visual effects that enhance the retro gaming aesthetic */}
       <ScanlineOverlay />
       <SpotlightEffect />
       <PixelFoliage />
       <MobileSectionDots />
       <KonamiCowsay />
+
+      {/* Main layout container with responsive design */}
       <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-16 lg:py-0">
         <div className="lg:flex lg:justify-between lg:gap-4">
+          {/* Profile sidebar - sticky on desktop, full width on mobile */}
           <ProfileAside />
+
+          {/* Main content area with proper focus management for skip links */}
           <main
             id="content"
             tabIndex={-1}
             className="pt-24 lg:w-[52%] lg:py-24"
           >
+            {/* Content sections separated by pixel art dividers */}
             <About />
             <PixelDivider />
             <Experience />
