@@ -2,7 +2,7 @@
 
 Personal portfolio site built with Next.js, Tailwind CSS, and TypeScript.
 
-**Live site:** TODO:
+**Live site:** [vchadha.vercel.app](https://vchadha.vercel.app/)
 
 ---
 
