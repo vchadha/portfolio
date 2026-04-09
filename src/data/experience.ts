@@ -16,11 +16,12 @@ export const experiences: Experience[] = [
     company: "Capital One",
     url: "https://www.capitalone.com",
     description:
-      "Designed and deployed data tampering prevention and detection techniques \
-      for our financial ledger, improving transaction integrity and compliance. \
-      Achieved sub-150ms transaction processing through distributed system performance \
-      optimisation. Demonstrated benefits of formal verification in distributed microservices \
-      to internal teams.",
+      "Designed and deployed a cryptographic audit trail that verifies the integrity \
+      and authenticity of every transaction our platform produces — a core part of our \
+      security posture. On the performance side, we're hitting around 83ms end-to-end \
+      transaction latency. I've also been championing formal verification as a practical \
+      engineering tool: presented at two internal conferences, stood up a company-wide \
+      community of practice, and we're building toward production pilots.",
     techs: ["AWS KMS", "TLA+/PlusCal", "Kubernetes/Helm", "Temporal"],
   },
   {
@@ -30,12 +31,13 @@ export const experiences: Experience[] = [
     company: "Capital One",
     url: "https://www.capitalone.com",
     description:
-      "Co-led major redesign of financial transaction processing supporting 50 million \
-      daily account transactions, improving performance and reliability. \
-      Migrated database infrastructure from Cassandra to DynamoDB, co-designing \
-      schemas aligned to a single-table paradigm. Led triage and resolution of AWS Redis \
-      production issues, reducing downtime incidents. Researched regional failover and \
-      data recovery strategies for high availability.",
+      "Co-designed the core transaction processing layer for a new multi-line-of-business \
+      platform — moving from a system built for a single client (12M accounts) to one \
+      currently serving 50M accounts and architected to scale to 500M. A big part of that \
+      was rethinking our data model: redesigning schemas from the ground up for DynamoDB's \
+      single-table paradigm, working directly with AWS to validate our approach. \
+      Also diagnosed and resolved a stubborn multi-week Redis degradation that was \
+      impacting response times for Capital One Auto Finance.",
     techs: ["Docker", "Cassandra", "DynamoDB", "Redis"],
   },
   {
@@ -45,10 +47,12 @@ export const experiences: Experience[] = [
     company: "Capital One",
     url: "https://www.capitalone.com",
     description:
-      "Built core financial ledger microservices in Scala with ZIO and Cassandra supporting 12 million \
-      daily account transactions. Co-designed a compliant account purge system that removed closed accounts \
-      at scale without performance degradation. Built monitoring infrastructure using Splunk and New Relic, \
-      and mentored on-call engineers to improve incident response efficiency.",
+      "Built the core financial ledger microservices in Scala and ZIO that formed the \
+      foundation of our platform. Set up monitoring infrastructure in Splunk and New Relic, \
+      then ran an alerting audit to clean up stale alerts and close coverage gaps — the \
+      kind of unglamorous work that makes on-call a lot less painful. Also delivered a \
+      legally-compliant account purge system for Auto Finance, which had to remove \
+      inactive accounts under a strict regulatory policy without touching system performance.",
     techs: ["Scala", "ZIO", "Cassandra", "Splunk", "New Relic"],
   },
   {
@@ -58,9 +62,12 @@ export const experiences: Experience[] = [
     company: "UW–Madison",
     url: "https://www.wisc.edu",
     description:
-      "Conducted research on IoT device detection for combating Intimate Partner Surveillance (IPS). \
-      Developed a Python market analysis tool for consumer spy devices and simulated sensor spoofing \
-      attacks in self-driving car scenarios using CARLA and Openpilot.",
+      "Researched IoT device detection for combating Intimate Partner Surveillance. \
+      Built a market analysis tool that catalogued spy devices across major retail \
+      categories and surfaced real-world misuse patterns from product reviews — one \
+      finding being that commercial spy detectors are largely ineffective at catching them. \
+      Also simulated sensor spoofing attacks in autonomous vehicle scenarios using CARLA \
+      and Openpilot, demonstrating how manipulated sensor data could cause crashes.",
     techs: ["Python", "CARLA", "Openpilot", "IoT", "Cyber-Physical Systems"],
   },
   {

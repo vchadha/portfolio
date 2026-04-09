@@ -25,7 +25,9 @@ export const publications: Publication[] = [
     myName: "Varun Chadha",
     description:
       "Studied the ecosystem of covert surveillance devices used in intimate partner \
-      abuse, analysing detection gaps and consumer spy device markets.",
+      abuse — mapping what's available, where it's sold, and how it gets misused. \
+      A key finding: commercial spy detectors marketed to victims are largely ineffective \
+      at catching the devices actually being used against them.",
     techs: [
       "Python",
       "IoT",

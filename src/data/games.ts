@@ -85,9 +85,10 @@ export const games: Game[] = [
     myName: "Varun Chadha",
     description:
       "A top-down naval, time, space shooter built for MADE @ THE MADE with \
-       an alternative controller — a salvaged children's toy clock soldered into \
-       a custom gamepad. Co-responsible for hardware engineering: wiring and soldering \
-       the clock's internal components into a functional USB controller.",
+       an alternative controller — a salvaged children's toy clock that we wired and soldered \
+       into a fully functional USB gamepad. Handling the hardware engineering meant getting into \
+       the clock's internals and turning something designed to tell time into something designed \
+       to shoot things.",
     techs: ["Unity", "C#", "Embedded Systems", "Alt Ctrl", "Game Jam"],
   },
   {
@@ -103,7 +104,7 @@ export const games: Game[] = [
     authors: ["Justin Roderman", "Varun Chadha", "Sean Poole", "Alex Shadley"],
     myName: "Varun Chadha",
     description:
-      "A QWOP-style pteranodon flying game built for DINOJAM3. Implemented the level \
+      "A QWOP-style pteranodon flying game built for DINOJAM3 — we placed 3rd. Implemented the level \
       selection screen, menu system, enemy AI, and co-designed gameplay levels.",
     techs: ["Unity", "C#", "Game Jam", "Dino Jam"],
   },
